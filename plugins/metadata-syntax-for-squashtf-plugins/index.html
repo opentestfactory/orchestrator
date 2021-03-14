@@ -1,0 +1,1838 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
+    
+    
+      
+        <title>Metatadata syntax - Squash Orchestrator</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.77f3fd56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#metadata-syntax-for-squash-orchestrator-plugins" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Squash Orchestrator" class="md-header__button md-logo" aria-label="Squash Orchestrator">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Squash Orchestrator
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Metatadata syntax
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Squash Orchestrator" class="md-nav__button md-logo" aria-label="Squash Orchestrator">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Squash Orchestrator
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        Quick Start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Guides
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/inception/" class="md-nav__link">
+        Inception
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/outputs/" class="md-nav__link">
+        Outputs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/repositories/" class="md-nav__link">
+        Repositories
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Learn Squash Orchestrator
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Learn Squash Orchestrator" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Learn Squash Orchestrator
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-squash-orchestrator/learn/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-squash-orchestrator/introduction-to-squash-orchestrator/" class="md-nav__link">
+        Introduction to Squash Orchestrator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-squash-orchestrator/finding-and-customizing-plugins/" class="md-nav__link">
+        Finding and customizing plugins
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-squash-orchestrator/essential-features-of-squash-orchestrator/" class="md-nav__link">
+        Essential features of Squash Orchestrator
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      <label class="md-nav__link" for="__nav_6">
+        Creating plugins
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Creating plugins" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Creating plugins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about-plugins/" class="md-nav__link">
+        About plugins
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating-a-generator-plugin/" class="md-nav__link">
+        Creating a generator plugin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating-a-provider-plugin/" class="md-nav__link">
+        Creating a provider plugin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Metatadata syntax
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Metatadata syntax
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-yaml-syntax-for-squash-orchestrator-plugins" class="md-nav__link">
+    About YAML syntax for Squash Orchestrator plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kind" class="md-nav__link">
+    kind
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadataname" class="md-nav__link">
+    metadata.name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadataauthor" class="md-nav__link">
+    metadata.author
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadatadescription" class="md-nav__link">
+    metadata.description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmd" class="md-nav__link">
+    cmd
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    events
+  </a>
+  
+    <nav class="md-nav" aria-label="events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    inputs
+  </a>
+  
+    <nav class="md-nav" aria-label="inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputsinput_id" class="md-nav__link">
+    inputs.&lt;input_id&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputsinput_iddescription" class="md-nav__link">
+    inputs.&lt;input_id&gt;.description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputsinput_idrequired" class="md-nav__link">
+    inputs.&lt;input_id&gt;.required
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputsinput_iddefault" class="md-nav__link">
+    inputs.&lt;input_id&gt;.default
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    outputs
+  </a>
+  
+    <nav class="md-nav" aria-label="outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputsoutput_id" class="md-nav__link">
+    outputs.&lt;output_id&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputsoutput_iddescription" class="md-nav__link">
+    outputs.&lt;output_id&gt;.description
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs-for-composite-run-steps-plugins" class="md-nav__link">
+    outputs for composite run steps plugins
+  </a>
+  
+    <nav class="md-nav" aria-label="outputs for composite run steps plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputsoutput_idvalue" class="md-nav__link">
+    outputs.&lt;output_id.value&gt;
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branding" class="md-nav__link">
+    branding
+  </a>
+  
+    <nav class="md-nav" aria-label="branding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brandingcolor" class="md-nav__link">
+    branding.color
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brandingicon" class="md-nav__link">
+    branding.icon
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Providers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Providers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Providers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/actionprovider/" class="md-nav__link">
+        action
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/cucumber/" class="md-nav__link">
+        cucumber
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/cypress/" class="md-nav__link">
+        cypress
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/junit/" class="md-nav__link">
+        junit
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/robotframework/" class="md-nav__link">
+        robotframework
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/soapui/" class="md-nav__link">
+        soapui
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Configuring services
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Configuring services" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Configuring services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/actionprovider/" class="md-nav__link">
+        Action Provider service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/arranger/" class="md-nav__link">
+        Arranger service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/eventbus/" class="md-nav__link">
+        Event Bus
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/killswitch/" class="md-nav__link">
+        Killswitch service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/observer/" class="md-nav__link">
+        Observer service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/receptionist/" class="md-nav__link">
+        Receptionist service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/sshee/" class="md-nav__link">
+        SSH Channel service
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Reference
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/workflows/" class="md-nav__link">
+        Workflow syntax
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-and-expression-syntax/" class="md-nav__link">
+        Context and expression syntax
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/workflow-commands/" class="md-nav__link">
+        Workflow commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/using-environment-variables/" class="md-nav__link">
+        Environment variables
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-yaml-syntax-for-squash-orchestrator-plugins" class="md-nav__link">
+    About YAML syntax for Squash Orchestrator plugins
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kind" class="md-nav__link">
+    kind
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadataname" class="md-nav__link">
+    metadata.name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadataauthor" class="md-nav__link">
+    metadata.author
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadatadescription" class="md-nav__link">
+    metadata.description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmd" class="md-nav__link">
+    cmd
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    events
+  </a>
+  
+    <nav class="md-nav" aria-label="events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    inputs
+  </a>
+  
+    <nav class="md-nav" aria-label="inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputsinput_id" class="md-nav__link">
+    inputs.&lt;input_id&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputsinput_iddescription" class="md-nav__link">
+    inputs.&lt;input_id&gt;.description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputsinput_idrequired" class="md-nav__link">
+    inputs.&lt;input_id&gt;.required
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inputsinput_iddefault" class="md-nav__link">
+    inputs.&lt;input_id&gt;.default
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    outputs
+  </a>
+  
+    <nav class="md-nav" aria-label="outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputsoutput_id" class="md-nav__link">
+    outputs.&lt;output_id&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputsoutput_iddescription" class="md-nav__link">
+    outputs.&lt;output_id&gt;.description
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outputs-for-composite-run-steps-plugins" class="md-nav__link">
+    outputs for composite run steps plugins
+  </a>
+  
+    <nav class="md-nav" aria-label="outputs for composite run steps plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputsoutput_idvalue" class="md-nav__link">
+    outputs.&lt;output_id.value&gt;
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branding" class="md-nav__link">
+    branding
+  </a>
+  
+    <nav class="md-nav" aria-label="branding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brandingcolor" class="md-nav__link">
+    branding.color
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brandingicon" class="md-nav__link">
+    branding.icon
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="metadata-syntax-for-squash-orchestrator-plugins">Metadata syntax for Squash Orchestrator plugins<a class="headerlink" href="#metadata-syntax-for-squash-orchestrator-plugins" title="Permanent link">&para;</a></h1>
+<p>You can create plugins to perform tasks in your workflows.  Plugins require a
+metadata file that uses YAML syntax.</p>
+<h2 id="about-yaml-syntax-for-squash-orchestrator-plugins">About YAML syntax for Squash Orchestrator plugins<a class="headerlink" href="#about-yaml-syntax-for-squash-orchestrator-plugins" title="Permanent link">&para;</a></h2>
+<p>Plugins require a metadata file.  The metadata filename must be either
+<code>plugin.yml</code> or <code>plugin.yaml</code>.  The data in the metadata file defines the
+inputs, outputs and main entrypoint for your plugin.</p>
+<p>Plugin metadata files use YAML syntax.  If you&rsquo;re new to YAML, you can read
+&ldquo;<a href="https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes">Learn YAML in five minutes</a>.&rdquo;</p>
+<p>You can put more than one YAML document in your metadata file.  They may all
+refer to the same plugin.</p>
+<h2 id="kind"><code>kind</code><a class="headerlink" href="#kind" title="Permanent link">&para;</a></h2>
+<p><strong>Required</strong> The plugin type (<code>ChannelPlugin</code>, <code>ProviderPlugin</code>,
+<code>PublicationPlugin</code>, or <code>GeneratorPlugin</code>).</p>
+<h2 id="metadataname"><code>metadata.name</code><a class="headerlink" href="#metadataname" title="Permanent link">&para;</a></h2>
+<p><strong>Required</strong> The name of your plugin.</p>
+<h2 id="metadataauthor"><code>metadata.author</code><a class="headerlink" href="#metadataauthor" title="Permanent link">&para;</a></h2>
+<p><strong>Optional</strong> The name of the plugin&rsquo;s author.</p>
+<h2 id="metadatadescription"><code>metadata.description</code><a class="headerlink" href="#metadatadescription" title="Permanent link">&para;</a></h2>
+<p><strong>Required</strong> A short description of the plugin.</p>
+<h2 id="cmd"><code>cmd</code><a class="headerlink" href="#cmd" title="Permanent link">&para;</a></h2>
+<p><strong>Required</strong> The shell command used to start the plugin.</p>
+<h2 id="events"><code>events</code><a class="headerlink" href="#events" title="Permanent link">&para;</a></h2>
+<p><strong>Required</strong> for <code>ProviderPlugin</code> and <code>GeneratorPlugin</code> plugins, not present
+for other plugin kinds.  The event(s) to subscribe to.</p>
+<p>Possible entries are <code>category</code>, <code>categoryPrefix</code>, and <code>categoryVersion</code>.</p>
+<p>If <code>categoryPrefix</code> is not specified, <code>category</code> is required.</p>
+<p><code>categoryVersion</code> can only be specified if at least the <code>category</code> or
+<code>categoryPrefix</code> is specified.</p>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<p>This example subscribes to <code>helloworld@v1</code>, <code>helloworld@v2</code>, and <code>helloworld</code>
+events, but not to <code>prefix/helloworld@v1</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">events</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">category</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">helloworld</span>
+</code></pre></div>
+<p>This example subscribes to <code>prefix/foo@v1</code> and <code>prefix/bar@v2</code> events, but
+not to <code>prefix@v1</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">events</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">categoryPrefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">prefix</span>
+</code></pre></div>
+<p>This example subscribes to <code>prefix/foo@v1</code> and <code>prefix/bar@v1</code> events, but
+not to <code>prefix/foo@v2</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">events</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">categoryPrefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">prefix</span>
+  <span class="nt">categoryVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+</code></pre></div>
+<p>This last example only subscribes to <code>prefix/helloworld@v1</code> and <code>prefix/helloworld@v2</code>
+events.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">events</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">categoryPrefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">prefix</span>
+  <span class="nt">category</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">helloworld</span>
+  <span class="nt">categoryVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="p p-Indicator">-</span> <span class="nt">categoryPrefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">prefix</span>
+  <span class="nt">category</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">helloworld</span>
+  <span class="nt">categoryVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v2</span>
+</code></pre></div>
+<h2 id="inputs"><code>inputs</code><a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
+<p><strong>Optional</strong> Input parameters allow you to specify data that the plugin expects
+to use during runtime.  Squash Orchestrator stores input parameters as environment
+variables.  Input ids with uppercase letters are converted to lowercase during
+runtime.  We recommended using lowercase input ids.</p>
+<h3 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h3>
+<p>This example configures two inputs: numOctocats and octocatEyeColor.
+The numOctocats input is not required and will default to a value of &lsquo;1&rsquo;.  The
+octocatEyeColor input is required and has no default value.  Workflow files that
+use this plugin must use the <code>with</code> keyword to set an input value for
+octocatEyeColor.  For more information about the <code>with</code> syntax, see &ldquo;<a href="../../reference/workflows/">Workflow
+syntax for Squash Orchestrator</a>.&rdquo;</p>
+<div class="highlight"><pre><span></span><code><span class="nt">inputs</span><span class="p">:</span>
+  <span class="nt">numOctocats</span><span class="p">:</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="s">&#39;Number</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Octocats&#39;</span>
+    <span class="nt">required</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="nt">default</span><span class="p">:</span> <span class="s">&#39;1&#39;</span>
+  <span class="nt">octocatEyeColor</span><span class="p">:</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="s">&#39;Eye</span><span class="nv"> </span><span class="s">color</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Octocats&#39;</span>
+    <span class="nt">required</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+<p>When you specify an input to a plugin in a workflow file or use a default input
+value, Squash Orchestrator creates an environment variable for the input with the name
+<code>INPUT_&lt;VARIABLE_NAME&gt;</code>.  The environment variable created converts input names
+to uppercase letters and replaces spaces with <code>_</code> characters.</p>
+<p>For example, if a workflow defined the numOctocats and octocatEyeColor inputs,
+the action code could read the values of the inputs using the
+<code>INPUT_NUMOCTOCATS</code> and <code>INPUT_OCTOCATEYECOLOR</code> environment variables.</p>
+<h3 id="inputsinput_id"><code>inputs.&lt;input_id&gt;</code><a class="headerlink" href="#inputsinput_id" title="Permanent link">&para;</a></h3>
+<p><strong>Required</strong> A <code>string</code> identifier to associate with the input.  The value of
+<code>&lt;input_id&gt;</code> is a map of the input&rsquo;s metadata.  The <code>&lt;input_id&gt;</code> must be a
+unique identifier within the inputs object.  The <code>&lt;input_id&gt;</code> must start with a
+letter or <code>_</code> and contain only alphanumeric characters, <code>-</code>, or <code>_</code>.</p>
+<h3 id="inputsinput_iddescription"><code>inputs.&lt;input_id&gt;.description</code><a class="headerlink" href="#inputsinput_iddescription" title="Permanent link">&para;</a></h3>
+<p><strong>Required</strong> A <code>string</code> description of the input parameter.</p>
+<h3 id="inputsinput_idrequired"><code>inputs.&lt;input_id&gt;.required</code><a class="headerlink" href="#inputsinput_idrequired" title="Permanent link">&para;</a></h3>
+<p><strong>Required</strong> A <code>boolean</code> to indicate whether the plugin requires the input
+parameter.  Set to <code>true</code> when the parameter is required.</p>
+<h3 id="inputsinput_iddefault"><code>inputs.&lt;input_id&gt;.default</code><a class="headerlink" href="#inputsinput_iddefault" title="Permanent link">&para;</a></h3>
+<p><strong>Optional</strong> A <code>string</code> representing the default value.  The default value is
+used when an input parameter isn&rsquo;t specified in a workflow file.</p>
+<h2 id="outputs"><code>outputs</code><a class="headerlink" href="#outputs" title="Permanent link">&para;</a></h2>
+<p><strong>Optional</strong> Output parameters allow you to declare data that a plugin sets.
+Plugins that run later in a workflow can use the output data set in previously
+run plugins.  For example, if you had a plugin that performed the addition of
+two inputs (x + y = z), the plugin could output the sum (z) for other plugins to
+use as an input.</p>
+<p>If you don&rsquo;t declare an output in your plugin metadata file, you can still set
+outputs and use them in a workflow.  For more information on setting outputs in
+a plugin, see &ldquo;<a href="../../reference/workflow-commands/">Workflow commands for Squash Orchestrator</a>.&rdquo;</p>
+<h3 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">outputs</span><span class="p">:</span>
+  <span class="nt">sum</span><span class="p">:</span> <span class="c1"># id of the output</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="s">&#39;The</span><span class="nv"> </span><span class="s">sum</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">inputs&#39;</span>
+</code></pre></div>
+<h3 id="outputsoutput_id"><code>outputs.&lt;output_id&gt;</code><a class="headerlink" href="#outputsoutput_id" title="Permanent link">&para;</a></h3>
+<p><strong>Required</strong> A <code>string</code> identifier to associate with the output.  The value of
+<code>&lt;output_id&gt;</code> is a map of the output&rsquo;s metadata.  The <code>&lt;output_id&gt;</code> must be a
+unique identifier within the outputs object.  The <code>&lt;output_id&gt;</code> must start with
+a letter or <code>_</code> and contain only alphanumeric characters, <code>-</code>, or <code>_</code>.</p>
+<h3 id="outputsoutput_iddescription"><code>outputs.&lt;output_id&gt;.description</code><a class="headerlink" href="#outputsoutput_iddescription" title="Permanent link">&para;</a></h3>
+<p><strong>Required</strong> A <code>string</code> description of the output parameter.</p>
+<h2 id="outputs-for-composite-run-steps-plugins"><code>outputs</code> for composite run steps plugins<a class="headerlink" href="#outputs-for-composite-run-steps-plugins" title="Permanent link">&para;</a></h2>
+<p><strong>Optional</strong> <code>outputs</code> use the same parameters as <code>outputs.&lt;output_id&gt;</code> and
+<code>outputs.&lt;output_id&gt;.description</code> (see &ldquo;outputs for Squash Orchestrator plugins&rdquo;), but
+also includes the <code>value</code> token.</p>
+<h3 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">outputs</span><span class="p">:</span>
+  <span class="nt">random-number</span><span class="p">:</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="s">&quot;Random</span><span class="nv"> </span><span class="s">number&quot;</span>
+    <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.random-number-generator.outputs.random-id }}</span>
+<span class="nt">runs</span><span class="p">:</span>
+  <span class="nt">using</span><span class="p">:</span> <span class="s">&quot;composite&quot;</span>
+  <span class="nt">steps</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">random-number-generator</span>
+      <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;::set-output name=random-id::$(echo $RANDOM)&quot;</span>
+      <span class="nt">shell</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
+</code></pre></div>
+<h3 id="outputsoutput_idvalue"><code>outputs.&lt;output_id.value&gt;</code><a class="headerlink" href="#outputsoutput_idvalue" title="Permanent link">&para;</a></h3>
+<p><strong>Required</strong> The value that the output parameter will be mapped to.  You can set
+this to a <code>string</code> or an expression with context.  For example, you can use the
+<code>steps</code> context to set the <code>value</code> of an output to the output value of a step.</p>
+<p>For more information on how to use context and expression syntax, see &ldquo;<a href="../../reference/context-and-expression-syntax/">Context
+and expression syntax for GitHub Actions</a>.&rdquo;</p>
+<h2 id="branding"><code>branding</code><a class="headerlink" href="#branding" title="Permanent link">&para;</a></h2>
+<p>You can use a color and <a href="https://feathericons.com/">Feather</a> icon to create a
+badge to personalize and distinguish your plugin.  Badges are shown next to
+your plugin name in Squash Orchestrator Marketplace.</p>
+<h3 id="example_4">Example<a class="headerlink" href="#example_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">branding</span><span class="p">:</span>
+  <span class="nt">icon</span><span class="p">:</span> <span class="s">&#39;award&#39;</span>
+  <span class="nt">color</span><span class="p">:</span> <span class="s">&#39;green&#39;</span>
+</code></pre></div>
+<h3 id="brandingcolor"><code>branding.color</code><a class="headerlink" href="#brandingcolor" title="Permanent link">&para;</a></h3>
+<p>The background color of the badge.  Can be one of: <code>white</code>, <code>yellow</code>, <code>blue</code>,
+<code>green</code>, <code>orange</code>, <code>red</code>, <code>purple</code>, or <code>gray-dark</code>.</p>
+<h3 id="brandingicon"><code>branding.icon</code><a class="headerlink" href="#brandingicon" title="Permanent link">&para;</a></h3>
+<p>The name of the <a href="https://feathericons.com/">Feather</a> icon to use.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>activity</td>
+<td>airplay</td>
+<td>alert-circle</td>
+<td>alert-octagon</td>
+</tr>
+<tr>
+<td>alert-triangle</td>
+<td>align-center</td>
+<td>align-justify</td>
+<td>align-left</td>
+</tr>
+<tr>
+<td>align-right</td>
+<td>anchor</td>
+<td>aperture</td>
+<td>archive</td>
+</tr>
+<tr>
+<td>arrow-down-circle</td>
+<td>arrow-down-left</td>
+<td>arrow-down-right</td>
+<td>arrow-down</td>
+</tr>
+<tr>
+<td>arrow-left-circle</td>
+<td>arrow-left</td>
+<td>arrow-right-circle</td>
+<td>arrow-right</td>
+</tr>
+<tr>
+<td>arrow-up-circle</td>
+<td>arrow-up-left</td>
+<td>arrow-up-right</td>
+<td>arrow-up</td>
+</tr>
+<tr>
+<td>at-sign</td>
+<td>award</td>
+<td>bar-chart-2</td>
+<td>bar-chart</td>
+</tr>
+<tr>
+<td>battery-charging</td>
+<td>battery</td>
+<td>bell-off</td>
+<td>bell</td>
+</tr>
+<tr>
+<td>bluetooth</td>
+<td>bold</td>
+<td>book-open</td>
+<td>book</td>
+</tr>
+<tr>
+<td>bookmark</td>
+<td>box</td>
+<td>briefcase</td>
+<td>calendar</td>
+</tr>
+<tr>
+<td>camera-off</td>
+<td>camera</td>
+<td>cast</td>
+<td>check-circle</td>
+</tr>
+<tr>
+<td>check-square</td>
+<td>check</td>
+<td>chevron-down</td>
+<td>chevron-left</td>
+</tr>
+<tr>
+<td>chevron-right</td>
+<td>chevron-up</td>
+<td>chevrons-down</td>
+<td>chevrons-left</td>
+</tr>
+<tr>
+<td>chevrons-right</td>
+<td>chevrons-up</td>
+<td>circle</td>
+<td>clipboard</td>
+</tr>
+<tr>
+<td>clock</td>
+<td>cloud-drizzle</td>
+<td>cloud-lightning</td>
+<td>cloud-off</td>
+</tr>
+<tr>
+<td>cloud-rain</td>
+<td>cloud-snow</td>
+<td>cloud</td>
+<td>code</td>
+</tr>
+<tr>
+<td>command</td>
+<td>compass</td>
+<td>copy</td>
+<td>corner-down-left</td>
+</tr>
+<tr>
+<td>corner-down-right</td>
+<td>corner-left-down</td>
+<td>corner-left-up</td>
+<td>corner-right-down</td>
+</tr>
+<tr>
+<td>corner-right-up</td>
+<td>corner-up-left</td>
+<td>corner-up-right</td>
+<td>cpu</td>
+</tr>
+<tr>
+<td>credit-card</td>
+<td>crop</td>
+<td>crosshair</td>
+<td>database</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>disc</td>
+<td>dollar-sign</td>
+<td>download-cloud</td>
+</tr>
+<tr>
+<td>download</td>
+<td>droplet</td>
+<td>edit-2</td>
+<td>edit-3</td>
+</tr>
+<tr>
+<td>edit</td>
+<td>external-link</td>
+<td>eye-off</td>
+<td>eye</td>
+</tr>
+<tr>
+<td>facebook</td>
+<td>fast-forward</td>
+<td>feather</td>
+<td>file-minus</td>
+</tr>
+<tr>
+<td>file-plus</td>
+<td>file-text</td>
+<td>file</td>
+<td>film</td>
+</tr>
+<tr>
+<td>filter</td>
+<td>flag</td>
+<td>folder-minus</td>
+<td>folder-plus</td>
+</tr>
+<tr>
+<td>folder</td>
+<td>gift</td>
+<td>git-branch</td>
+<td>git-commit</td>
+</tr>
+<tr>
+<td>git-merge</td>
+<td>git-pull-request</td>
+<td>globe</td>
+<td>grid</td>
+</tr>
+<tr>
+<td>hard-drive</td>
+<td>hash</td>
+<td>headphones</td>
+<td>heart</td>
+</tr>
+<tr>
+<td>help-circle</td>
+<td>home</td>
+<td>image</td>
+<td>inbox</td>
+</tr>
+<tr>
+<td>info</td>
+<td>italic</td>
+<td>layers</td>
+<td>layout</td>
+</tr>
+<tr>
+<td>life-buoy</td>
+<td>link-2</td>
+<td>link</td>
+<td>list</td>
+</tr>
+<tr>
+<td>loader</td>
+<td>lock</td>
+<td>log-in</td>
+<td>log-out</td>
+</tr>
+<tr>
+<td>mail</td>
+<td>map-pin</td>
+<td>map</td>
+<td>maximize-2</td>
+</tr>
+<tr>
+<td>maximize</td>
+<td>menu</td>
+<td>message-circle</td>
+<td>message-square</td>
+</tr>
+<tr>
+<td>mic-off</td>
+<td>mic</td>
+<td>minimize-2</td>
+<td>minimize</td>
+</tr>
+<tr>
+<td>minus-circle</td>
+<td>minus-square</td>
+<td>minus</td>
+<td>monitor</td>
+</tr>
+<tr>
+<td>moon</td>
+<td>more-horizontal</td>
+<td>more-vertical</td>
+<td>move</td>
+</tr>
+<tr>
+<td>music</td>
+<td>navigation-2</td>
+<td>navigation</td>
+<td>octagon</td>
+</tr>
+<tr>
+<td>package</td>
+<td>paperclip</td>
+<td>pause-circle</td>
+<td>pause</td>
+</tr>
+<tr>
+<td>percent</td>
+<td>phone-call</td>
+<td>phone-forwarded</td>
+<td>phone-incoming</td>
+</tr>
+<tr>
+<td>phone-missed</td>
+<td>phone-off</td>
+<td>phone-outgoing</td>
+<td>phone</td>
+</tr>
+<tr>
+<td>pie-chart</td>
+<td>play-circle</td>
+<td>play</td>
+<td>plus-circle</td>
+</tr>
+<tr>
+<td>plus-square</td>
+<td>plus</td>
+<td>pocket</td>
+<td>power</td>
+</tr>
+<tr>
+<td>printer</td>
+<td>radio</td>
+<td>refresh-ccw</td>
+<td>refresh-cw</td>
+</tr>
+<tr>
+<td>repeat</td>
+<td>rewind</td>
+<td>rotate-ccw</td>
+<td>rotate-cw</td>
+</tr>
+<tr>
+<td>rss</td>
+<td>save</td>
+<td>scissors</td>
+<td>search</td>
+</tr>
+<tr>
+<td>send</td>
+<td>server</td>
+<td>settings</td>
+<td>share-2</td>
+</tr>
+<tr>
+<td>share</td>
+<td>shield-off</td>
+<td>shield</td>
+<td>shopping-bag</td>
+</tr>
+<tr>
+<td>shopping-cart</td>
+<td>shuffle</td>
+<td>sidebar</td>
+<td>skip-back</td>
+</tr>
+<tr>
+<td>skip-forward</td>
+<td>slash</td>
+<td>sliders</td>
+<td>smartphone</td>
+</tr>
+<tr>
+<td>speaker</td>
+<td>square</td>
+<td>star</td>
+<td>stop-circle</td>
+</tr>
+<tr>
+<td>sun</td>
+<td>sunrise</td>
+<td>sunset</td>
+<td>tablet</td>
+</tr>
+<tr>
+<td>tag</td>
+<td>target</td>
+<td>terminal</td>
+<td>thermometer</td>
+</tr>
+<tr>
+<td>thumbs-down</td>
+<td>thumbs-up</td>
+<td>toggle-left</td>
+<td>toggle-right</td>
+</tr>
+<tr>
+<td>trash-2</td>
+<td>trash</td>
+<td>trending-down</td>
+<td>trending-up</td>
+</tr>
+<tr>
+<td>triangle</td>
+<td>truck</td>
+<td>tv</td>
+<td>type</td>
+</tr>
+<tr>
+<td>umbrella</td>
+<td>underline</td>
+<td>unlock</td>
+<td>upload-cloud</td>
+</tr>
+<tr>
+<td>upload</td>
+<td>user-check</td>
+<td>user-minus</td>
+<td>user-plus</td>
+</tr>
+<tr>
+<td>user-x</td>
+<td>user</td>
+<td>users</td>
+<td>video-off</td>
+</tr>
+<tr>
+<td>video</td>
+<td>voicemail</td>
+<td>volume-1</td>
+<td>volume-2</td>
+</tr>
+<tr>
+<td>volume-x</td>
+<td>volume</td>
+<td>watch</td>
+<td>wifi-off</td>
+</tr>
+<tr>
+<td>wifi</td>
+<td>wind</td>
+<td>x-circle</td>
+<td>x-square</td>
+</tr>
+<tr>
+<td>x</td>
+<td>zap-off</td>
+<td>zap</td>
+<td>zoom-in</td>
+</tr>
+<tr>
+<td>zoom-out</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../creating-a-provider-plugin/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Creating a provider plugin
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../../providers/actionprovider/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              action
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9b151c6a.min.js"></script>
+      
+    
+  </body>
+</html>

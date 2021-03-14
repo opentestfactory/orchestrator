@@ -1,0 +1,2267 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
+    
+    
+      
+        <title>Context and expression syntax - Squash Orchestrator</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.77f3fd56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#context-and-expression-syntax-for-squash-orchestrator-workflows" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Squash Orchestrator" class="md-header__button md-logo" aria-label="Squash Orchestrator">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Squash Orchestrator
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Context and expression syntax
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Squash Orchestrator" class="md-nav__button md-logo" aria-label="Squash Orchestrator">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Squash Orchestrator
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        Quick Start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Guides
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/inception/" class="md-nav__link">
+        Inception
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/outputs/" class="md-nav__link">
+        Outputs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/repositories/" class="md-nav__link">
+        Repositories
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Learn Squash Orchestrator
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Learn Squash Orchestrator" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Learn Squash Orchestrator
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-squash-orchestrator/learn/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-squash-orchestrator/introduction-to-squash-orchestrator/" class="md-nav__link">
+        Introduction to Squash Orchestrator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-squash-orchestrator/finding-and-customizing-plugins/" class="md-nav__link">
+        Finding and customizing plugins
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-squash-orchestrator/essential-features-of-squash-orchestrator/" class="md-nav__link">
+        Essential features of Squash Orchestrator
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Creating plugins
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Creating plugins" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Creating plugins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plugins/about-plugins/" class="md-nav__link">
+        About plugins
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plugins/creating-a-generator-plugin/" class="md-nav__link">
+        Creating a generator plugin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plugins/creating-a-provider-plugin/" class="md-nav__link">
+        Creating a provider plugin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plugins/metadata-syntax-for-squashtf-plugins/" class="md-nav__link">
+        Metatadata syntax
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Providers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Providers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Providers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/actionprovider/" class="md-nav__link">
+        action
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/cucumber/" class="md-nav__link">
+        cucumber
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/cypress/" class="md-nav__link">
+        cypress
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/junit/" class="md-nav__link">
+        junit
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/robotframework/" class="md-nav__link">
+        robotframework
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/soapui/" class="md-nav__link">
+        soapui
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Configuring services
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Configuring services" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Configuring services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/actionprovider/" class="md-nav__link">
+        Action Provider service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/arranger/" class="md-nav__link">
+        Arranger service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/eventbus/" class="md-nav__link">
+        Event Bus
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/killswitch/" class="md-nav__link">
+        Killswitch service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/observer/" class="md-nav__link">
+        Observer service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/receptionist/" class="md-nav__link">
+        Receptionist service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/sshee/" class="md-nav__link">
+        SSH Channel service
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+      
+      <label class="md-nav__link" for="__nav_9">
+        Reference
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflows/" class="md-nav__link">
+        Workflow syntax
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Context and expression syntax
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Context and expression syntax
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-contexts-and-expressions" class="md-nav__link">
+    About contexts and expressions
+  </a>
+  
+    <nav class="md-nav" aria-label="About contexts and expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-expression-in-an-if-conditional" class="md-nav__link">
+    Example expression in an if conditional
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-setting-an-environment-variable" class="md-nav__link">
+    Example setting an environment variable
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexts" class="md-nav__link">
+    Contexts
+  </a>
+  
+    <nav class="md-nav" aria-label="Contexts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#squashtf-context" class="md-nav__link">
+    squashtf context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables-context" class="md-nav__link">
+    variables context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resources-context" class="md-nav__link">
+    resources context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-context" class="md-nav__link">
+    job context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steps-context" class="md-nav__link">
+    steps context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runner-context" class="md-nav__link">
+    runner context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#needs-context" class="md-nav__link">
+    needs context
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#literals" class="md-nav__link">
+    Literals
+  </a>
+  
+    <nav class="md-nav" aria-label="Literals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operators" class="md-nav__link">
+    Operators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contains" class="md-nav__link">
+    contains
+  </a>
+  
+    <nav class="md-nav" aria-label="contains">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-using-an-array" class="md-nav__link">
+    Example using an array
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-using-a-string" class="md-nav__link">
+    Example using a string
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startswith" class="md-nav__link">
+    startsWith
+  </a>
+  
+    <nav class="md-nav" aria-label="startsWith">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endswith" class="md-nav__link">
+    endsWith
+  </a>
+  
+    <nav class="md-nav" aria-label="endsWith">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    format
+  </a>
+  
+    <nav class="md-nav" aria-label="format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-escaping-braces" class="md-nav__link">
+    Example escaping braces
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    join
+  </a>
+  
+    <nav class="md-nav" aria-label="join">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tojson" class="md-nav__link">
+    toJson
+  </a>
+  
+    <nav class="md-nav" aria-label="toJson">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_5" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fromjson" class="md-nav__link">
+    fromJson
+  </a>
+  
+    <nav class="md-nav" aria-label="fromJson">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_6" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#job-status-check-functions" class="md-nav__link">
+    Job status check functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Job status check functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success" class="md-nav__link">
+    success
+  </a>
+  
+    <nav class="md-nav" aria-label="success">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_7" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#always" class="md-nav__link">
+    always
+  </a>
+  
+    <nav class="md-nav" aria-label="always">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_8" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cancelled" class="md-nav__link">
+    cancelled
+  </a>
+  
+    <nav class="md-nav" aria-label="cancelled">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_9" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failure" class="md-nav__link">
+    failure
+  </a>
+  
+    <nav class="md-nav" aria-label="failure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_10" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-filters" class="md-nav__link">
+    Object filters
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow-commands/" class="md-nav__link">
+        Workflow commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-environment-variables/" class="md-nav__link">
+        Environment variables
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-contexts-and-expressions" class="md-nav__link">
+    About contexts and expressions
+  </a>
+  
+    <nav class="md-nav" aria-label="About contexts and expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-expression-in-an-if-conditional" class="md-nav__link">
+    Example expression in an if conditional
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-setting-an-environment-variable" class="md-nav__link">
+    Example setting an environment variable
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexts" class="md-nav__link">
+    Contexts
+  </a>
+  
+    <nav class="md-nav" aria-label="Contexts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#squashtf-context" class="md-nav__link">
+    squashtf context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables-context" class="md-nav__link">
+    variables context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resources-context" class="md-nav__link">
+    resources context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-context" class="md-nav__link">
+    job context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steps-context" class="md-nav__link">
+    steps context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runner-context" class="md-nav__link">
+    runner context
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#needs-context" class="md-nav__link">
+    needs context
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#literals" class="md-nav__link">
+    Literals
+  </a>
+  
+    <nav class="md-nav" aria-label="Literals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operators" class="md-nav__link">
+    Operators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contains" class="md-nav__link">
+    contains
+  </a>
+  
+    <nav class="md-nav" aria-label="contains">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-using-an-array" class="md-nav__link">
+    Example using an array
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-using-a-string" class="md-nav__link">
+    Example using a string
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#startswith" class="md-nav__link">
+    startsWith
+  </a>
+  
+    <nav class="md-nav" aria-label="startsWith">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#endswith" class="md-nav__link">
+    endsWith
+  </a>
+  
+    <nav class="md-nav" aria-label="endsWith">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    format
+  </a>
+  
+    <nav class="md-nav" aria-label="format">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-escaping-braces" class="md-nav__link">
+    Example escaping braces
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join" class="md-nav__link">
+    join
+  </a>
+  
+    <nav class="md-nav" aria-label="join">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tojson" class="md-nav__link">
+    toJson
+  </a>
+  
+    <nav class="md-nav" aria-label="toJson">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_5" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fromjson" class="md-nav__link">
+    fromJson
+  </a>
+  
+    <nav class="md-nav" aria-label="fromJson">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_6" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#job-status-check-functions" class="md-nav__link">
+    Job status check functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Job status check functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#success" class="md-nav__link">
+    success
+  </a>
+  
+    <nav class="md-nav" aria-label="success">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_7" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#always" class="md-nav__link">
+    always
+  </a>
+  
+    <nav class="md-nav" aria-label="always">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_8" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cancelled" class="md-nav__link">
+    cancelled
+  </a>
+  
+    <nav class="md-nav" aria-label="cancelled">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_9" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failure" class="md-nav__link">
+    failure
+  </a>
+  
+    <nav class="md-nav" aria-label="failure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_10" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-filters" class="md-nav__link">
+    Object filters
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="context-and-expression-syntax-for-squash-orchestrator-workflows">Context and expression syntax for Squash Orchestrator Workflows<a class="headerlink" href="#context-and-expression-syntax-for-squash-orchestrator-workflows" title="Permanent link">&para;</a></h1>
+<p>You can access context information and evaluate expressions in workflows.</p>
+<h2 id="about-contexts-and-expressions">About contexts and expressions<a class="headerlink" href="#about-contexts-and-expressions" title="Permanent link">&para;</a></h2>
+<p>You can use expressions to programmatically set variables in workflow files and
+access contexts.  An expression can be any combination of literal values,
+references to a context, or functions.  You can combine literals, context
+references, and functions using operators.</p>
+<p>Expressions are commonly used with the conditional <code>if</code> keyword in a workflow
+file to determine whether a step should run.  When an <code>if</code> conditional is
+<code>true</code>, the step will run.</p>
+<p>You need to use specific syntax to tell Squash Orchestrator to evaluate an expression
+rather than treat it as a string.</p>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">${{ &lt;expression&gt; }}</span>
+</code></pre></div>
+<p>When you use expressions in an <code>if</code> conditional, you may omit the expression
+syntax (<code>${{ }}</code>) because Squash Orchestrator automatically evaluates the <code>if</code>
+conditional as an expression.  For more information about <code>if</code> conditionals,
+see &ldquo;<a href="#workflows.md">Workflow syntax for Squash Orchestrator</a>.&rdquo;</p>
+<h3 id="example-expression-in-an-if-conditional">Example expression in an <code>if</code> conditional<a class="headerlink" href="#example-expression-in-an-if-conditional" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">steps</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">robotframework/robot@v1</span>
+    <span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ &lt;expression&gt; }}</span>
+</code></pre></div>
+<h3 id="example-setting-an-environment-variable">Example setting an environment variable<a class="headerlink" href="#example-setting-an-environment-variable" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">variables</span><span class="p">:</span>
+  <span class="nt">my_env_var</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ &lt;expression&gt; }}</span>
+</code></pre></div>
+<h2 id="contexts">Contexts<a class="headerlink" href="#contexts" title="Permanent link">&para;</a></h2>
+<p>Contexts are a way to access information about workflow runs, execution
+environments, jobs, and steps.  Contexts use the expression syntax.</p>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">${{ &lt;context&gt; }}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Context&nbsp;name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>squashtf</code></td>
+<td><code>object</code></td>
+<td>Information about the workflow run.  For more information, see <a href="#squashtf-context"><code>squashtf</code> context</a>.</td>
+</tr>
+<tr>
+<td><code>variables</code></td>
+<td><code>object</code></td>
+<td>Contains environment variables set in a workflow, job, or step.  For more information, see <a href="#variables-context"><code>variables</code> context</a>.</td>
+</tr>
+<tr>
+<td><code>resources</code></td>
+<td><code>object</code></td>
+<td>Information about the resources set in a workflow.  For more information, see <a href="#resources-context"><code>resources</code> context</a>.</td>
+</tr>
+<tr>
+<td><code>job</code></td>
+<td><code>object</code></td>
+<td>Information about the currently executing job.  For more information, see <a href="#job-context"><code>job</code> context</a>.</td>
+</tr>
+<tr>
+<td><code>steps</code></td>
+<td><code>object</code></td>
+<td>Information about the steps that have been run in this job.  For more information, see <a href="#steps-context"><code>steps</code> context</a>.</td>
+</tr>
+<tr>
+<td><code>runner</code></td>
+<td><code>object</code></td>
+<td>Information about the execution environment that is running the current job.  For more information, see <a href="#runner-context"><code>runner</code> context</a>.</td>
+</tr>
+<tr>
+<td><code>needs</code></td>
+<td><code>object</code></td>
+<td>Enables access to the outputs of all jobs that are defined as a dependency of the current job.  For more information, see <a href="#needs-context"><code>needs</code> context</a>.</td>
+</tr>
+</tbody>
+</table>
+<p>As part of an expression, you may access context information using one of two
+syntaxes.</p>
+<ul>
+<li>Index syntax: <code>squashtf['job']</code></li>
+<li>Property dereference syntax: <code>squashtf.job</code></li>
+</ul>
+<p>In order to use property dereference syntax, the property name must:</p>
+<ul>
+<li>start with <code>a-Z</code> or <code>_</code>.</li>
+<li>be followed by <code>a-Z</code> <code>0-9</code> <code>-</code> or <code>_</code>.</li>
+</ul>
+<h3 id="squashtf-context"><code>squashtf</code> context<a class="headerlink" href="#squashtf-context" title="Permanent link">&para;</a></h3>
+<p>The <code>squashtf</code> context contains information about the workflow run and the
+event that triggered the run.  You can read most of the <code>squashtf</code> context data
+in environment variables.  For more information about environment variables,
+see &ldquo;<a href="using-environment-variables">Using environment variables</a>.&rdquo;</p>
+<p><strong>Warning</strong>: When using the whole <code>squashtf</code> context, be mindful that it
+includes sensitive information such as <code>squashtf.token</code>.  Squash Orchestrator masks
+secrets when they are printed to the console, but you should be cautious when
+exporting or printing the <code>context</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Property&nbsp;name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>squashtf</code></td>
+<td><code>object</code></td>
+<td>The top-level context available during any job or step in a workflow.</td>
+</tr>
+<tr>
+<td><code>squashtf.workflow</code></td>
+<td><code>string</code></td>
+<td>The name of the workflow.  If the workflow file doesn&rsquo;t specify a name, the value of this property is the full path of the workflow file in the repository.</td>
+</tr>
+<tr>
+<td><code>squashtf.job</code></td>
+<td><code>string</code></td>
+<td>The <a href="../workflows/#jobs.&lt;job_id&gt;"><code>job_id</code></a> of the current job.</td>
+</tr>
+<tr>
+<td><code>squashtf.actor</code></td>
+<td><code>string</code></td>
+<td>The login of the user that initiated the workflow run.</td>
+</tr>
+<tr>
+<td><code>squashtf.token</code></td>
+<td><code>string</code></td>
+<td>A token to authenticate on behalf of the Squash Orchestrator plugin.</td>
+</tr>
+<tr>
+<td><code>squashtf.step</code></td>
+<td><code>string</code></td>
+<td>The name of the step currently running.  Squash Orchestrator removes special characters or uses the name <code>run</code> when the current step runs a script.  If you use the same action more than once in the same job, the name will include a suffix with the sequence number.  For example, the first script you run will have the name <code>run1</code>, and the second script will be named <code>run2</code>.  Similarly, the second invocation of <code>actions/checkout</code> will be <code>actionscheckout2</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="variables-context"><code>variables</code> context<a class="headerlink" href="#variables-context" title="Permanent link">&para;</a></h3>
+<p>The <code>variables</code> context contains environment variables that have been set in a
+workflow, job, or step.  For more information about setting environment
+variables in your workflow, see &ldquo;<a href="../workflows/">Workflow syntax for Squash Orchestrator</a>.&rdquo;</p>
+<p>The <code>variables</code> context syntax allows you to use the value of an environment
+variable in your workflow file.  If you want to use the value of an environment
+variable inside an execution environment, use the execution environment
+operating system&rsquo;s normal method for reading environment variables.</p>
+<p>You can only use the <code>variables</code> context in the value of the <code>with</code> and <code>name</code>
+keys, or in a step&rsquo;s <code>if</code> conditional.  For more information on the step
+syntax, see &ldquo;<a href="../workflows/">Workflow syntax for Squash Orchestrator</a>.&rdquo;</p>
+<table>
+<thead>
+<tr>
+<th>Property&nbsp;name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>variables</code></td>
+<td><code>object</code></td>
+<td>This context changes for each step in a job.  You can access this context from any step in a job.</td>
+</tr>
+<tr>
+<td><code>variables.&lt;var name&gt;</code></td>
+<td><code>string</code></td>
+<td>The value of a specific environment variable.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="resources-context"><code>resources</code> context<a class="headerlink" href="#resources-context" title="Permanent link">&para;</a></h3>
+<p>The <code>resources</code> context contains resources that have been set in a workflow.  For more information about setting resources in your workflow, see &ldquo;<a href="../workflows/">Workflow syntax for Squash Orchestrator</a>.&rdquo;</p>
+<p>The <code>resources</code> context syntax allow you to use the resources in your workflow file.</p>
+<p>You can only use the <code>resources</code> context in the value of the <code>with</code> and <code>name</code> keys.  For more information on the step syntax, see &ldquo;<a href="../workflows/">Workflow syntax for Squash Orchestrator</a>.&rdquo;</p>
+<table>
+<thead>
+<tr>
+<th>Property&nbsp;name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>resources.&lt;resource type&gt;</code></td>
+<td><code>object</code></td>
+<td>The resource type objects.  Possible values are testmanagers, repositories, or files.</td>
+</tr>
+<tr>
+<td><code>resources.&lt;resource type&gt;.&lt;name&gt;</code></td>
+<td><code>object</code></td>
+<td>The set of properties for the resource.  There is at least a name property, the other are resource type dependent.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="job-context"><code>job</code> context<a class="headerlink" href="#job-context" title="Permanent link">&para;</a></h3>
+<p>The <code>job</code> context contains information about the currently running job.</p>
+<table>
+<thead>
+<tr>
+<th>Property&nbsp;name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>job</code></td>
+<td><code>object</code></td>
+<td>This context changes for each job in a workflow run.  You can access this context from any step in a job.</td>
+</tr>
+<tr>
+<td><code>job.status</code></td>
+<td><code>string</code></td>
+<td>The current status of the job.  Possible values are <code>success</code>, <code>failure</code>, or <code>cancelled</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="steps-context"><code>steps</code> context<a class="headerlink" href="#steps-context" title="Permanent link">&para;</a></h3>
+<p>The <code>steps</code> context contains information about the steps in the current job
+that have already run.</p>
+<table>
+<thead>
+<tr>
+<th>Property&nbsp;name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>steps</code></td>
+<td><code>object</code></td>
+<td>This context changes for each step in a job.  You can access this context from any step in a job.</td>
+</tr>
+<tr>
+<td><code>steps.&lt;step id&gt;.outputs</code></td>
+<td><code>object</code></td>
+<td>The set of outputs defined for the step.  For more information, see &ldquo;Metadata syntax for GitHub Actions.&rdquo;</td>
+</tr>
+<tr>
+<td><code>steps.&lt;step id&gt;.outputs.&lt;output name&gt;</code></td>
+<td><code>string</code></td>
+<td>The value of a specific output.</td>
+</tr>
+<tr>
+<td><code>steps.&lt;step id&gt;.outcome</code></td>
+<td><code>string</code></td>
+<td>The result of a completed step before continue-on-error is applied.  Possible values are <code>success</code>, <code>failure</code>, <code>cancelled</code>, or <code>skipped</code>.  When a <code>continue-on-error</code> step fails, the outcome is <code>failure</code>, but the final conclusion is <code>success</code>.</td>
+</tr>
+<tr>
+<td><code>steps.&lt;step id&gt;.conclusion</code></td>
+<td><code>string</code></td>
+<td>The result of a completed step after <code>continue-on-error</code> is applied.  Possible values are <code>success</code>, <code>failure</code>, <code>cancelled</code>, or <code>skipped</code>.  When a <code>continue-on-error</code> step fails, the outcome is <code>failure</code>, but the final conclusion is <code>success</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="runner-context"><code>runner</code> context<a class="headerlink" href="#runner-context" title="Permanent link">&para;</a></h3>
+<p>The <code>runner</code> context contains information about the execution environment that
+is executing the current job.</p>
+<table>
+<thead>
+<tr>
+<th>Property&nbsp;name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>runner.os</code></td>
+<td><code>string</code></td>
+<td>The operating system of the runner executing the job.  Possible values are Linux, Windows, or macOS.</td>
+</tr>
+<tr>
+<td><code>runner.temp</code></td>
+<td><code>string</code></td>
+<td>The path of the temporary directory for the execution environment.  This directory is guaranteed to be empty at the start of each job, even on self-hosted execution environments.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="needs-context"><code>needs</code> context<a class="headerlink" href="#needs-context" title="Permanent link">&para;</a></h3>
+<p>The <code>needs</code> context contains outputs from all jobs that are defined as a dependency of the current job.  For more information on defining job dependencies, see &ldquo;<a href="../workflows/">Workflow syntax for Squash Orchestrator</a>.&rdquo;</p>
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>needs.&lt;job id&gt;</code></td>
+<td><code>object</code></td>
+<td>A single job that the current job depends on.</td>
+</tr>
+<tr>
+<td><code>needs.&lt;job id&gt;.result</code></td>
+<td><code>string</code></td>
+<td>The result of a job that the current job depends on.  Possible values are <code>success</code>, <code>failure</code>, or <code>cancelled</code>.</td>
+</tr>
+<tr>
+<td><code>needs.&lt;job id&gt;.outputs</code></td>
+<td><code>object</code></td>
+<td>The set of outputs of a job that the current job depends on.</td>
+</tr>
+<tr>
+<td><code>needs.&lt;job id&gt;.outputs.&lt;output name&gt;</code></td>
+<td><code>string</code></td>
+<td>The value of a specific output for a job that the current job depends on.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="literals">Literals<a class="headerlink" href="#literals" title="Permanent link">&para;</a></h2>
+<p>As part of an expression, you can use <code>boolean</code>, <code>null</code>, <code>number</code>, or <code>string</code>
+data types.  Boolean literals are not case sensitive, so you can use true or
+True.</p>
+<table>
+<thead>
+<tr>
+<th>Data type</th>
+<th>Literal value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>boolean</code></td>
+<td><code>true</code> or <code>false</code></td>
+</tr>
+<tr>
+<td><code>null</code></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>number</code></td>
+<td>Any number format supported by JSON.</td>
+</tr>
+<tr>
+<td><code>string</code></td>
+<td>You must use single quotes.  Escape literal single-quotes with a single quote.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">variables</span><span class="p">:</span>
+  <span class="nt">myNull</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ null }}</span>
+  <span class="nt">myBoolean</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ false }}</span>
+  <span class="nt">myIntegerNumber</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ 711 }}</span>
+  <span class="nt">myFloatNumber</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ -9.2 }}</span>
+  <span class="nt">myHexNumber</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ 0xff }}</span>
+  <span class="nt">myExponentialNumber</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ -2.99-e2 }}</span>
+  <span class="nt">myString</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ &#39;Mona the Octocat&#39; }}</span>
+  <span class="nt">myEscapedString</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ &#39;It&#39;&#39;s open source!&#39; }}</span>
+</code></pre></div>
+<h2 id="operators">Operators<a class="headerlink" href="#operators" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>( )</code></td>
+<td>Logical grouping</td>
+</tr>
+<tr>
+<td><code>[ ]</code></td>
+<td>Index</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>Property dereference</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>Not</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Less than</td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>Less than or equal</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Greater than</td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>Greater than or equal</td>
+</tr>
+<tr>
+<td><code>==</code></td>
+<td>Equal</td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>Not equal</td>
+</tr>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>And</td>
+</tr>
+<tr>
+<td><code>||</code></td>
+<td>Or</td>
+</tr>
+</tbody>
+</table>
+<p>Squash Orchestrator performs loose equality comparisons.</p>
+<ul>
+<li>If the types do not match, Squash Orchestrator coerces the type to a number.
+  Squash Orchestrator casts data types to a number using these conversions:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Null</td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td><code>true</code> returns <code>1</code><br/><code>false</code> returns <code>0</code></td>
+</tr>
+<tr>
+<td>String</td>
+<td>Parsed from any legal JSON number format, otherwise <code>NaN</code>.<br/>Note: empty string returns <code>0</code>.</td>
+</tr>
+<tr>
+<td>Array</td>
+<td><code>NaN</code></td>
+</tr>
+<tr>
+<td>Object</td>
+<td><code>NaN</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>A comparison of one <code>NaN</code> to another <code>NaN</code> does not result in <code>true</code>.  For
+  more information, see the &ldquo;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN">NaN Mozilla docs</a>.&rdquo;</p>
+</li>
+<li>
+<p>Squash Orchestrator ignores case when comparing strings.</p>
+</li>
+<li>
+<p>Objects and arrays are only considered equal when they are the same instance.</p>
+</li>
+</ul>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
+<p>Squash Orchestrator offers a set of built-in functions that you can use in expressions.
+Some functions cast values to a string to perform comparisons.  Squash Orchestrator casts
+data types to a string using these conversions:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Null</td>
+<td><code>''</code></td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td><code>'true'</code> or <code>'false'</code></td>
+</tr>
+<tr>
+<td>Number</td>
+<td>Decimal format, exponential for large numbers</td>
+</tr>
+<tr>
+<td>Array</td>
+<td>Arrays are not converted to a string</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>Objects are not converted to a string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="contains">contains<a class="headerlink" href="#contains" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nx">contains</span><span class="p">(</span> <span class="nx">search</span><span class="p">,</span> <span class="nx">item</span> <span class="p">)</span>
+</code></pre></div>
+<p>Returns <code>true</code> if <code>search</code> contains <code>item</code>.  If <code>search</code> is an array, this
+function returns <code>true</code> if the item is an element in the array.  If <code>search</code> is
+a string, this function returns <code>true</code> if the item is a substring of <code>search</code>.
+This function is not case sensitive.  Casts values to a string.</p>
+<h4 id="example-using-an-array">Example using an array<a class="headerlink" href="#example-using-an-array" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nx">contains</span><span class="p">(</span><span class="nx">github</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">issue</span><span class="p">.</span><span class="nx">labels</span><span class="p">.</span><span class="o">*</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="s1">&#39;bug&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="example-using-a-string">Example using a string<a class="headerlink" href="#example-using-a-string" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nx">contains</span><span class="p">(</span><span class="s1">&#39;Hello world&#39;</span><span class="p">,</span> <span class="s1">&#39;llo&#39;</span><span class="p">)</span> <span class="nx">returns</span> <span class="kc">true</span>
+</code></pre></div>
+<h3 id="startswith">startsWith<a class="headerlink" href="#startswith" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nx">startsWith</span><span class="p">(</span> <span class="nx">searchString</span><span class="p">,</span> <span class="nx">searchValue</span> <span class="p">)</span>
+</code></pre></div>
+<p>Returns <code>true</code> when <code>searchString</code> starts with <code>searchValue</code>.  This function is
+not case sensitive.  Casts values to a string.</p>
+<h4 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nx">startsWith</span><span class="p">(</span><span class="s1">&#39;Hello world&#39;</span><span class="p">,</span> <span class="s1">&#39;He&#39;</span><span class="p">)</span> <span class="nx">returns</span> <span class="kc">true</span>
+</code></pre></div>
+<h3 id="endswith">endsWith<a class="headerlink" href="#endswith" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nx">endsWith</span><span class="p">(</span> <span class="nx">searchString</span><span class="p">,</span> <span class="nx">searchValue</span> <span class="p">)</span>
+</code></pre></div>
+<p>Returns <code>true</code> if <code>searchString</code> ends with <code>searchValue</code>.  This function is not
+case sensitive.  Casts values to a string.</p>
+<h4 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nx">endsWith</span><span class="p">(</span><span class="s1">&#39;Hello world&#39;</span><span class="p">,</span> <span class="s1">&#39;ld&#39;</span><span class="p">)</span> <span class="nx">returns</span> <span class="kc">true</span>
+</code></pre></div>
+<h3 id="format">format<a class="headerlink" href="#format" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nx">format</span><span class="p">(</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">replaceValue0</span><span class="p">,</span> <span class="nx">replaceValue1</span><span class="p">,</span> <span class="p">...,</span> <span class="nx">replaceValueN</span><span class="p">)</span>
+</code></pre></div>
+<p>Replaces values in the string, with the variable <code>replaceValueN</code>.  Variables in
+the string are specified using the <code>{N}</code> syntax, where <code>N</code> is an integer.  You
+must specify at least one <code>replaceValue</code> and <code>string</code>.  There is no maximum for
+the number of variables (<code>replaceValueN</code>) you can use.  Escape curly braces
+using double braces.</p>
+<h4 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">&para;</a></h4>
+<p>Returns &lsquo;Hello Mona the Octocat&rsquo;</p>
+<div class="highlight"><pre><span></span><code><span class="nx">format</span><span class="p">(</span><span class="s1">&#39;Hello {0} {1} {2}&#39;</span><span class="p">,</span> <span class="s1">&#39;Mona&#39;</span><span class="p">,</span> <span class="s1">&#39;the&#39;</span><span class="p">,</span> <span class="s1">&#39;Octocat&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="example-escaping-braces">Example escaping braces<a class="headerlink" href="#example-escaping-braces" title="Permanent link">&para;</a></h4>
+<p>Returns &lsquo;{Hello Mona the Octocat!}&rsquo;</p>
+<div class="highlight"><pre><span></span><code><span class="nx">format</span><span class="p">(</span><span class="s1">&#39;{{Hello {0} {1} {2}!}}&#39;</span><span class="p">,</span> <span class="s1">&#39;Mona&#39;</span><span class="p">,</span> <span class="s1">&#39;the&#39;</span><span class="p">,</span> <span class="s1">&#39;Octocat&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="join">join<a class="headerlink" href="#join" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nx">join</span><span class="p">(</span> <span class="nx">array</span><span class="p">,</span> <span class="nx">optionalSeparator</span> <span class="p">)</span>
+</code></pre></div>
+<p>The value for <code>array</code> can be an array or a string.  All values in array are
+concatenated into a string.  If you provide <code>optionalSeparator</code>, it is inserted
+between the concatenated values.  Otherwise, the default separator <code>,</code> is used.
+Casts values to a string.</p>
+<h4 id="example_4">Example<a class="headerlink" href="#example_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nx">join</span><span class="p">(</span><span class="nx">github</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">issue</span><span class="p">.</span><span class="nx">labels</span><span class="p">.</span><span class="o">*</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span> <span class="nx">may</span> <span class="k">return</span> <span class="s1">&#39;bug, help wanted&#39;</span>
+</code></pre></div>
+<h3 id="tojson">toJson<a class="headerlink" href="#tojson" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nx">toJSON</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+</code></pre></div>
+<p>Returns a pretty-print JSON representation of <code>value</code>.  You can use this
+function to debug the information provided in contexts.</p>
+<h4 id="example_5">Example<a class="headerlink" href="#example_5" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nx">toJSON</span><span class="p">(</span><span class="nx">job</span><span class="p">)</span> <span class="nx">might</span> <span class="k">return</span> <span class="p">{</span> <span class="s2">&quot;status&quot;</span><span class="o">:</span> <span class="s2">&quot;Success&quot;</span> <span class="p">}</span>
+</code></pre></div>
+<h3 id="fromjson">fromJson<a class="headerlink" href="#fromjson" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nx">fromJSON</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+</code></pre></div>
+<p>Returns a JSON object for <code>value</code>.  You can use this function to provide a JSON
+object as an evaluated expression.</p>
+<h4 id="example_6">Example<a class="headerlink" href="#example_6" title="Permanent link">&para;</a></h4>
+<p>This workflow sets a JSON matrix in one job, and passes it to the next job
+using an output and <code>fromJSON</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">build</span>
+<span class="nt">jobs</span><span class="p">:</span>
+  <span class="nt">job1</span><span class="p">:</span>
+    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+    <span class="nt">outputs</span><span class="p">:</span>
+      <span class="nt">matrix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.set-matrix.outputs.matrix }}</span>
+    <span class="nt">steps</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">set-matrix</span>
+      <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;::set-output name=matrix::{\&quot;include\&quot;:[{\&quot;project\&quot;:\&quot;foo\&quot;,\&quot;config\&quot;:\&quot;Debug\&quot;},{\&quot;project\&quot;:\&quot;bar\&quot;,\&quot;config\&quot;:\&quot;Release\&quot;}]}&quot;</span>
+  <span class="nt">job2</span><span class="p">:</span>
+    <span class="nt">needs</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">job1</span>
+    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+    <span class="nt">strategy</span><span class="p">:</span>
+      <span class="nt">matrix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{fromJson(needs.job1.outputs.matrix)}}</span>
+    <span class="nt">steps</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">build</span>
+</code></pre></div>
+<h2 id="job-status-check-functions">Job status check functions<a class="headerlink" href="#job-status-check-functions" title="Permanent link">&para;</a></h2>
+<p>You can use the following status check functions as expressions in <code>if</code>
+conditionals.  If your <code>if</code> expression does not contain any of the status
+functions it will automatically result with <code>success()</code>.  For more information
+about if conditionals, see &ldquo;<a href="../workflows/">Workflow syntax for Squash Orchestrator</a>.&rdquo;</p>
+<h3 id="success">success<a class="headerlink" href="#success" title="Permanent link">&para;</a></h3>
+<p>Returns <code>true</code> when none of the previous steps have failed or been canceled.</p>
+<h4 id="example_7">Example<a class="headerlink" href="#example_7" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">steps</span><span class="p">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">...</span>
+  <span class="l l-Scalar l-Scalar-Plain">- name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">The job has succeeded</span>
+    <span class="l l-Scalar l-Scalar-Plain">if</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ success() }}</span>
+</code></pre></div>
+<h3 id="always">always<a class="headerlink" href="#always" title="Permanent link">&para;</a></h3>
+<p>Always returns <code>true</code>, even when canceled.  A job or step will not run when a
+critical failure prevents the task from running.  For example, if getting
+sources failed.</p>
+<h4 id="example_8">Example<a class="headerlink" href="#example_8" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ always() }}</span>
+</code></pre></div>
+<h3 id="cancelled">cancelled<a class="headerlink" href="#cancelled" title="Permanent link">&para;</a></h3>
+<p>Returns <code>true</code> if the workflow was canceled.</p>
+<h4 id="example_9">Example<a class="headerlink" href="#example_9" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">if</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ cancelled() }}</span>
+</code></pre></div>
+<h3 id="failure">failure<a class="headerlink" href="#failure" title="Permanent link">&para;</a></h3>
+<p>Returns <code>true</code> when any previous step of a job fails.</p>
+<h4 id="example_10">Example<a class="headerlink" href="#example_10" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">steps</span><span class="p">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">...</span>
+  <span class="l l-Scalar l-Scalar-Plain">- name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">The job has failed</span>
+    <span class="l l-Scalar l-Scalar-Plain">if</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ failure() }}</span>
+</code></pre></div>
+<h2 id="object-filters">Object filters<a class="headerlink" href="#object-filters" title="Permanent link">&para;</a></h2>
+<p>You can use the <code>*</code> syntax to apply a filter and select matching items in a
+collection.</p>
+<p>For example, consider an array of objects named <code>fruits</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+  <span class="p">{</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="nt">&quot;quantity&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="nt">&quot;quantity&quot;</span><span class="p">:</span> <span class="mi">2</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pear&quot;</span><span class="p">,</span> <span class="nt">&quot;quantity&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>The filter <code>fruits.*.name</code> returns the array <code>[ "apple", "orange", "pear" ]</code>.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../workflows/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Workflow syntax
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../workflow-commands/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Workflow commands
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9b151c6a.min.js"></script>
+      
+    
+  </body>
+</html>

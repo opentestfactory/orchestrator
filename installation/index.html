@@ -1,0 +1,1294 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
+    
+    
+      
+        <title>Installation - Squash Orchestrator</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.77f3fd56.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#squash-orchestrator-installation-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Squash Orchestrator" class="md-header__button md-logo" aria-label="Squash Orchestrator">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Squash Orchestrator
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Squash Orchestrator" class="md-nav__button md-logo" aria-label="Squash Orchestrator">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Squash Orchestrator
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        Quick Start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Installation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Installation
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting started
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuring-the-all-in-one-image" class="md-nav__link">
+    Configuring the 'all-in-one' image
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring the 'all-in-one' image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#startup" class="md-nav__link">
+    Startup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trusted-keys" class="md-nav__link">
+    Trusted Keys
+  </a>
+  
+    <nav class="md-nav" aria-label="Trusted Keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-the-created-jwt-token" class="md-nav__link">
+    Getting the created JWT token
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#providing-your-own-trusted-keys" class="md-nav__link">
+    Providing your own trusted keys
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    Plugins
+  </a>
+  
+    <nav class="md-nav" aria-label="Plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh-channel-configuration" class="md-nav__link">
+    SSH Channel Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-publisher-configuration" class="md-nav__link">
+    S3 Publisher Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-your-deployment" class="md-nav__link">
+    Testing your deployment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Guides
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/inception/" class="md-nav__link">
+        Inception
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/outputs/" class="md-nav__link">
+        Outputs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/repositories/" class="md-nav__link">
+        Repositories
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Learn Squash Orchestrator
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Learn Squash Orchestrator" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Learn Squash Orchestrator
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn-squash-orchestrator/learn/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn-squash-orchestrator/introduction-to-squash-orchestrator/" class="md-nav__link">
+        Introduction to Squash Orchestrator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn-squash-orchestrator/finding-and-customizing-plugins/" class="md-nav__link">
+        Finding and customizing plugins
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn-squash-orchestrator/essential-features-of-squash-orchestrator/" class="md-nav__link">
+        Essential features of Squash Orchestrator
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Creating plugins
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Creating plugins" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Creating plugins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/about-plugins/" class="md-nav__link">
+        About plugins
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/creating-a-generator-plugin/" class="md-nav__link">
+        Creating a generator plugin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/creating-a-provider-plugin/" class="md-nav__link">
+        Creating a provider plugin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/metadata-syntax-for-squashtf-plugins/" class="md-nav__link">
+        Metatadata syntax
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Providers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Providers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Providers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../providers/actionprovider/" class="md-nav__link">
+        action
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../providers/cucumber/" class="md-nav__link">
+        cucumber
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../providers/cypress/" class="md-nav__link">
+        cypress
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../providers/junit/" class="md-nav__link">
+        junit
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../providers/robotframework/" class="md-nav__link">
+        robotframework
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../providers/soapui/" class="md-nav__link">
+        soapui
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Configuring services
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Configuring services" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Configuring services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/actionprovider/" class="md-nav__link">
+        Action Provider service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/arranger/" class="md-nav__link">
+        Arranger service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/eventbus/" class="md-nav__link">
+        Event Bus
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/killswitch/" class="md-nav__link">
+        Killswitch service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/observer/" class="md-nav__link">
+        Observer service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/receptionist/" class="md-nav__link">
+        Receptionist service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/sshee/" class="md-nav__link">
+        SSH Channel service
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Reference
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/workflows/" class="md-nav__link">
+        Workflow syntax
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/context-and-expression-syntax/" class="md-nav__link">
+        Context and expression syntax
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/workflow-commands/" class="md-nav__link">
+        Workflow commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/using-environment-variables/" class="md-nav__link">
+        Environment variables
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting started
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuring-the-all-in-one-image" class="md-nav__link">
+    Configuring the 'all-in-one' image
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring the 'all-in-one' image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#startup" class="md-nav__link">
+    Startup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trusted-keys" class="md-nav__link">
+    Trusted Keys
+  </a>
+  
+    <nav class="md-nav" aria-label="Trusted Keys">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-the-created-jwt-token" class="md-nav__link">
+    Getting the created JWT token
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#providing-your-own-trusted-keys" class="md-nav__link">
+    Providing your own trusted keys
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    Plugins
+  </a>
+  
+    <nav class="md-nav" aria-label="Plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh-channel-configuration" class="md-nav__link">
+    SSH Channel Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s3-publisher-configuration" class="md-nav__link">
+    S3 Publisher Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-your-deployment" class="md-nav__link">
+    Testing your deployment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="squash-orchestrator-installation-documentation">Squash Orchestrator Installation Documentation<a class="headerlink" href="#squash-orchestrator-installation-documentation" title="Permanent link">&para;</a></h1>
+<h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<p>Squash Orchestrator, part of Squash Autom and Squash DevOps, is a set of
+services running together.  They may or may not run on the same machine, and
+they may or may not be started at the same time.</p>
+<p>The only prerequisite is that the <em>EventBus</em>, the service they use to
+communicate together, is available when they launch.</p>
+<p>To ease the installation of the orchestrator, an &lsquo;all-in-one&rsquo;
+docker image is provided.  It contains all core services.</p>
+<p>The most current stable image is <code>squashtest/squash-operator:latest</code>.
+If you want a specific version, you can use a specific tag such as
+<code>0.10.3-master</code>.</p>
+<p>To get the latest image, use the following command:</p>
+<div class="highlight"><pre><span></span><code>docker pull squashtest/squash-operator:latest
+</code></pre></div>
+<h3 id="configuring-the-all-in-one-image">Configuring the &lsquo;all-in-one&rsquo; image<a class="headerlink" href="#configuring-the-all-in-one-image" title="Permanent link">&para;</a></h3>
+<p>Three things must be configured if you want to use the &lsquo;all-in-one&rsquo; image:</p>
+<ul>
+<li>Startup</li>
+<li>Trusted Keys</li>
+<li>Plugins</li>
+</ul>
+<p>Once this configuration is done, you can run the image and the Squash orchestrator will be
+ready to use.</p>
+<p>Here is a simple command that will start the Squash orchestrator so that it can use
+one existing <em>execution environment</em>, with self-generated trusted keys (which is <em>not</em>
+recommended in a production setup):</p>
+<div class="highlight"><pre><span></span><code>docker run -d <span class="se">\</span>
+           --name orchestrator <span class="se">\</span>
+           -p <span class="m">7774</span>:7774 <span class="se">\</span>
+           -p <span class="m">7775</span>:7775 <span class="se">\</span>
+           -p <span class="m">7776</span>:7776 <span class="se">\</span>
+           -p <span class="m">38368</span>:38368 <span class="se">\</span>
+           -e <span class="nv">SSH_CHANNEL_HOST</span><span class="o">=</span>the_environment_ip_or_hostname <span class="se">\</span>
+           -e <span class="nv">SSH_CHANNEL_USER</span><span class="o">=</span>user <span class="se">\</span>
+           -e <span class="nv">SSH_CHANNEL_PASSWORD</span><span class="o">=</span>secret <span class="se">\</span>
+           -e <span class="nv">SSH_CHANNEL_TAGS</span><span class="o">=</span>ssh,linux,robotframework <span class="se">\</span>
+            squashtest/squash-orchestrator:latest
+</code></pre></div>
+<p>It exposes the following services on the corresponding ports:</p>
+<ul>
+<li><em>receptionist</em> (port 7774)</li>
+<li><em>observer</em> (port 7775)</li>
+<li><em>killswitch</em> (port 7776)</li>
+<li><em>eventbus</em> (port 38368)</li>
+</ul>
+<p>The orchestrator runs until one service fails or ends.</p>
+<h4 id="startup">Startup<a class="headerlink" href="#startup" title="Permanent link">&para;</a></h4>
+<p>By default, the &lsquo;all-in-one&rsquo; image will start the core services and all plugins
+it can find in the core and in the <code>/app/plugins</code> directory (and
+sub-directories).</p>
+<p>Some demonstration plugins that are part of the core are disabled by default:</p>
+<ul>
+<li><em>dummyee</em></li>
+<li><em>HelloWorld</em></li>
+<li><em>localpublisher</em></li>
+</ul>
+<p>You can override those defaults by providing an alternative <code>/app/squashtf.yaml</code>
+configuration file.</p>
+<p>Here is the default one:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># squashtf.yaml</span>
+<span class="nt">eventbus</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python3 -m squashtf.core.eventbus</span>
+<span class="nt">services</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${{ CORE }}/core</span>
+<span class="nt">plugins</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">${{ CORE }}/plugins</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">/app/plugins</span>
+<span class="nt">disabled</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">dummyee</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">HelloWorld</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">localpublisher</span>
+</code></pre></div>
+<p>If you have plugins installed in another location, add this location in the
+<code>plugins</code> section.</p>
+<p>If you want to enable or disable some of those plugins, remove or add their name
+in the <code>disabled</code> section.</p>
+<h4 id="trusted-keys">Trusted Keys<a class="headerlink" href="#trusted-keys" title="Permanent link">&para;</a></h4>
+<p>To send requests to the exposed services, you need a signed <a href="https://jwt.io/">JWT</a>
+token.</p>
+<p>You can either provide your trusted key(s) or let the orchestrator create a
+JWT token for you.  (It is not recommended to use this created JWT token in a
+production environment.)</p>
+<h5 id="getting-the-created-jwt-token">Getting the created JWT token<a class="headerlink" href="#getting-the-created-jwt-token" title="Permanent link">&para;</a></h5>
+<p>A unique JWT token is created only if no trusted keys are provided.  The orchestrator
+will generate a temporary private key, create and sign a JWT token using it, and
+then use the corresponding public key as its only trusted key.  The temporary
+private key is not kept anywhere.</p>
+<p>The created JWT token is displayed in the logs of the orchestrator.  Look for
+<code>"Creating temporary JWT token"</code>:</p>
+<div class="highlight"><pre><span></span><code>docker logs squashorchestrator <span class="p">|</span> grep --after-context<span class="o">=</span><span class="m">10</span> <span class="s2">&quot;Creating temporary JWT token&quot;</span>
+</code></pre></div>
+<p>A different JWT token will be created each time the orchestrator is started.</p>
+<p>It is not recommended to use this created JWT token in a production environment.</p>
+<h5 id="providing-your-own-trusted-keys">Providing your own trusted keys<a class="headerlink" href="#providing-your-own-trusted-keys" title="Permanent link">&para;</a></h5>
+<p>You can either use existing private key(s) or generate new private key(s) to
+create and sign your JWT tokens.</p>
+<p>You provide your public key(s) in the <code>/etc/squashtf</code> directory.  The easiest
+way is to put them in a volume and mount it on <code>/etc/squashtf</code>.  Here is an example
+mounting a single <code>trusted_key.pub</code> public key:</p>
+<div class="highlight"><pre><span></span><code>docker run ...  -v /path/to/trusted/key/trusted_key.pub:/etc/squashtf/squashtf.pub ...
+</code></pre></div>
+<p>The orchestrator will validate tokens according to those public keys (it
+will try each key, if more than one is supplied, until it finds one that
+validate the token).</p>
+<p>It uses the <code>sub</code> and <code>exp</code> claims in the payload and rejects tokens that are
+past their expiration time if one is specified in the token.</p>
+<p>The following command will generate a private key and its corresponding public key:</p>
+<div class="highlight"><pre><span></span><code>openssl genrsa -out trusted_key.pem <span class="m">4096</span>
+openssl rsa -pubout -in trusted_key.pem -out trusted_key.pub
+</code></pre></div>
+<p>To create JWT tokens from this key, you can use the following Python
+script (or any other JWT token creator you are familiar with):</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">jwt</span>  <span class="c1"># pip install PyJWT[crypto]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;trusted_key.pem&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> <span class="n">pem</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;trusted_key.pub&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> <span class="n">pub</span><span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># create a signed token</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">({</span><span class="s1">&#39;iss&#39;</span><span class="p">:</span> <span class="s1">&#39;you&#39;</span><span class="p">,</span> <span class="s1">&#39;sub&#39;</span><span class="p">:</span> <span class="s1">&#39;me&#39;</span><span class="p">},</span> <span class="n">pem</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;RS512&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+
+<span class="c1"># verify it</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">pub</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;RS512&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h4>
+<p>Most plugins do not need specific configuration, but those that must access
+external resources do.</p>
+<p>In the core plugins, the SSH channel plugin (and possibly the S3 publisher
+plugin if you use it) must be configured.</p>
+<p>Here are their respective detailed configuration documentations:</p>
+<ul>
+<li><a href="../services/sshee/">SSH Channel Configuration</a></li>
+<li><a href="services/s3publisher.md">S3 Publisher Configuration</a></li>
+</ul>
+<h5 id="ssh-channel-configuration">SSH Channel Configuration<a class="headerlink" href="#ssh-channel-configuration" title="Permanent link">&para;</a></h5>
+<p>If you only have one execution environment, you can simply specify it through environment variables.  It must be accessible via SSH.</p>
+<ul>
+<li><code>SSH_CHANNEL_HOST</code>: required, either a hostname or an IP address.</li>
+<li><code>SSH_CHANNEL_PORT</code>: optional, the port number (22 by default).</li>
+<li><code>SSH_CHANNEL_USER</code>: required, the user to use to log to the execution environment.</li>
+<li><code>SSH_CHANNEL_PASSWORD</code>: required, the corresponding password.</li>
+<li><code>SSH_CHANNEL_TAGS</code>: required, a comma-separated list of tags this environment can handle.</li>
+</ul>
+<p>If you have more than one execution environment, you will have to provide a pools definition.</p>
+<ul>
+<li><code>SSH_CHANNEL_POOLS</code>: optional, a path to the pools definitions.</li>
+</ul>
+<p>If <code>SSH_CHANNEL_POOLS</code> is set, it must point to a YAML file which will look like:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">pools</span><span class="p">:</span>
+  <span class="nt">demo</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">demo.example.com</span>
+    <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">demo</span>
+    <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1234</span>
+    <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">ssh</span><span class="p p-Indicator">,</span> <span class="nv">windows</span><span class="p p-Indicator">]</span>
+  <span class="nt">demo2</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">host.example.com</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">22</span>
+    <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">alice</span>
+    <span class="nt">ssh_host_keys</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/data/ssh/known_hosts</span>
+    <span class="nt">key_filename</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/data/ssh/example.pem</span>
+    <span class="nt">missing_host_key_policy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">reject</span>
+    <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">ssh</span><span class="p p-Indicator">,</span> <span class="nv">linux</span><span class="p p-Indicator">]</span>
+  <span class="p p-Indicator">-</span> <span class="nt">hosts</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">foo.example.com</span><span class="p p-Indicator">,</span> <span class="nv">bar.example.com</span><span class="p p-Indicator">]</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">22</span>
+    <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bob</span>
+    <span class="nt">ssh_host_keys</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/data/ssh/known_hosts</span>
+    <span class="nt">key_filename</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/data/ssh/secret.pem</span>
+    <span class="nt">passphrase</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">secret</span>
+    <span class="nt">missing_host_key_policy</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">auto-add</span>
+    <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">ssh</span><span class="p p-Indicator">,</span> <span class="nv">linux</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+<p>Please refer to &ldquo;<a href="../services/sshee/">SSH Channel Configuration</a>&rdquo; for more information
+on pools.</p>
+<p>If you specify both an execution environment and a pools definition, they will be
+merged, the specified execution environment possibly overriding an existing item in
+the pool (same host/port).</p>
+<h5 id="s3-publisher-configuration">S3 Publisher Configuration<a class="headerlink" href="#s3-publisher-configuration" title="Permanent link">&para;</a></h5>
+<p>If you intend to use the S3 Publisher plugin (so that your tests results are uploaded
+to a S3 bucket), you must provide a <code>s3credentials.json</code> configuration file and mount
+it as <code>/app/s3publisher/s3credentials.json</code>.</p>
+<p>It can work with any S3-compatible provider (AWS of course, but also Scaleway and
+others).</p>
+<p>You must provide the four following entries: <code>region_name</code>, <code>endpoint_url</code>,
+<code>aws_access_key_id</code>, and <code>aws_secret_access_key</code>.  You can also specify <code>bucket</code> (if
+you do not, results will be published to a <code>"squash_orchestrator"</code> bucket).</p>
+<p>The <code>s3credentials.json</code> file you provide will looks like this:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;region_name&quot;</span><span class="p">:</span> <span class="s2">&quot;fr-par&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;endpoint_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://s3.fr-par.scw.cloud&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;aws_access_key_id&quot;</span><span class="p">:</span> <span class="s2">&quot;access_key&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;aws_secret_access_key&quot;</span><span class="p">:</span> <span class="s2">&quot;secret_access_key&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;bucket&quot;</span><span class="p">:</span> <span class="s2">&quot;my_bucket&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Here is an example mounting a <code>my_s3_credentials.json</code> configuration file:</p>
+<div class="highlight"><pre><span></span><code>docker run ...  -v /path/to/my_s3credentials.json:/app/s3publisher/s3credentials.json ...
+</code></pre></div>
+<h3 id="testing-your-deployment">Testing your deployment<a class="headerlink" href="#testing-your-deployment" title="Permanent link">&para;</a></h3>
+<p>Assuming you have deployed and configured a Robotframework execution
+environment, you can run the following workflow to ensure everything is ok.</p>
+<p>Put this in a <code>robotdemo.yaml</code> file:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">opentestfactory.org/v1alpha1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Workflow</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RobotFramework Example</span>
+<span class="nt">variables</span><span class="p">:</span>
+  <span class="nt">SERVER</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">production</span>
+<span class="nt">jobs</span><span class="p">:</span>
+  <span class="nt">keyword-driven</span><span class="p">:</span>
+    <span class="nt">runs-on</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">ssh</span><span class="p p-Indicator">,</span> <span class="nv">robotframework</span><span class="p p-Indicator">]</span>
+    <span class="nt">steps</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo $SERVER</span>
+    <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+      <span class="nt">with</span><span class="p">:</span>
+        <span class="nt">repository</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/robotframework/RobotDemo.git</span>
+    <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span> <span class="s">&#39;ls</span><span class="nv"> </span><span class="s">-al&#39;</span>
+      <span class="nt">working-directory</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RobotDemo</span>
+    <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">robotframework/robot@v1</span>
+      <span class="nt">with</span><span class="p">:</span>
+        <span class="nt">datasource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RobotDemo/keyword_driven.robot</span>
+
+  <span class="nt">data-driven</span><span class="p">:</span>
+    <span class="nt">runs-on</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">ssh</span><span class="p p-Indicator">,</span> <span class="nv">robotframework</span><span class="p p-Indicator">]</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Data driven tests</span>
+    <span class="nt">steps</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+      <span class="nt">with</span><span class="p">:</span>
+        <span class="nt">repository</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/robotframework/RobotDemo.git</span>
+    <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">robotframework/robot@v1</span>
+      <span class="nt">with</span><span class="p">:</span>
+        <span class="nt">datasource</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RobotDemo/data_driven.robot</span>
+</code></pre></div>
+<p>Then run your workflow:</p>
+<div class="highlight"><pre><span></span><code>curl -X POST --data-binary @robotdemo.yaml -H <span class="s2">&quot;Authorization: Bearer &lt;yourtoken&gt;&quot;</span> -H <span class="s2">&quot;Content-type: application/x-yaml&quot;</span> https://&lt;ip&gt;/workflows
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../quickstart/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Quick Start
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../guides/inception/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Inception
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.9b151c6a.min.js"></script>
+      
+    
+  </body>
+</html>

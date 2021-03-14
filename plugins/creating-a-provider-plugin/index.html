@@ -1,0 +1,1279 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
+    
+    
+      
+        <title>Creating a provider plugin - Squash Orchestrator</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.77f3fd56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#creating-a-provider-plugin" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Squash Orchestrator" class="md-header__button md-logo" aria-label="Squash Orchestrator">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Squash Orchestrator
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Creating a provider plugin
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Squash Orchestrator" class="md-nav__button md-logo" aria-label="Squash Orchestrator">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Squash Orchestrator
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        Quick Start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Guides
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/inception/" class="md-nav__link">
+        Inception
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/outputs/" class="md-nav__link">
+        Outputs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/repositories/" class="md-nav__link">
+        Repositories
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Learn Squash Orchestrator
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Learn Squash Orchestrator" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Learn Squash Orchestrator
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-squash-orchestrator/learn/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-squash-orchestrator/introduction-to-squash-orchestrator/" class="md-nav__link">
+        Introduction to Squash Orchestrator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-squash-orchestrator/finding-and-customizing-plugins/" class="md-nav__link">
+        Finding and customizing plugins
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-squash-orchestrator/essential-features-of-squash-orchestrator/" class="md-nav__link">
+        Essential features of Squash Orchestrator
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      <label class="md-nav__link" for="__nav_6">
+        Creating plugins
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Creating plugins" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Creating plugins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about-plugins/" class="md-nav__link">
+        About plugins
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating-a-generator-plugin/" class="md-nav__link">
+        Creating a generator plugin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Creating a provider plugin
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Creating a provider plugin
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-web-service" class="md-nav__link">
+    Create a web service
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a web service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mainpy" class="md-nav__link">
+    main.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-plugin-metadata-file" class="md-nav__link">
+    Create a plugin metadata file
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a plugin metadata file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pluginyaml" class="md-nav__link">
+    plugin.yaml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-the-plugin-code" class="md-nav__link">
+    Writing the plugin code
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing the plugin code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementationpy" class="md-nav__link">
+    implementation.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-readme" class="md-nav__link">
+    Create a README
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a README">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#readmemd" class="md-nav__link">
+    README.md
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commit-tag-push-and-deploy-your-plugin" class="md-nav__link">
+    Commit, tag, push, and deploy your plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-out-your-plugin-in-a-workflow" class="md-nav__link">
+    Testing out your plugin in a workflow
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing out your plugin in a workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../metadata-syntax-for-squashtf-plugins/" class="md-nav__link">
+        Metatadata syntax
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Providers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Providers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Providers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/actionprovider/" class="md-nav__link">
+        action
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/cucumber/" class="md-nav__link">
+        cucumber
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/cypress/" class="md-nav__link">
+        cypress
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/junit/" class="md-nav__link">
+        junit
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/robotframework/" class="md-nav__link">
+        robotframework
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/soapui/" class="md-nav__link">
+        soapui
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Configuring services
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Configuring services" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Configuring services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/actionprovider/" class="md-nav__link">
+        Action Provider service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/arranger/" class="md-nav__link">
+        Arranger service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/eventbus/" class="md-nav__link">
+        Event Bus
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/killswitch/" class="md-nav__link">
+        Killswitch service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/observer/" class="md-nav__link">
+        Observer service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/receptionist/" class="md-nav__link">
+        Receptionist service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/sshee/" class="md-nav__link">
+        SSH Channel service
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        Reference
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/workflows/" class="md-nav__link">
+        Workflow syntax
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/context-and-expression-syntax/" class="md-nav__link">
+        Context and expression syntax
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/workflow-commands/" class="md-nav__link">
+        Workflow commands
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/using-environment-variables/" class="md-nav__link">
+        Environment variables
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-web-service" class="md-nav__link">
+    Create a web service
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a web service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mainpy" class="md-nav__link">
+    main.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-plugin-metadata-file" class="md-nav__link">
+    Create a plugin metadata file
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a plugin metadata file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pluginyaml" class="md-nav__link">
+    plugin.yaml
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-the-plugin-code" class="md-nav__link">
+    Writing the plugin code
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing the plugin code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementationpy" class="md-nav__link">
+    implementation.py
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-readme" class="md-nav__link">
+    Create a README
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a README">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#readmemd" class="md-nav__link">
+    README.md
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commit-tag-push-and-deploy-your-plugin" class="md-nav__link">
+    Commit, tag, push, and deploy your plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-out-your-plugin-in-a-workflow" class="md-nav__link">
+    Testing out your plugin in a workflow
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing out your plugin in a workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="creating-a-provider-plugin">Creating a provider plugin<a class="headerlink" href="#creating-a-provider-plugin" title="Permanent link">&para;</a></h1>
+<p>In this guide you&rsquo;ll learn how to build a provider plugin.</p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>In this guide, you will learn about the basic components needed to create and use
+a packaged provider plugin.  To focus this guide on the components needed to
+package the plugin, the functionality of the plugin&rsquo;s code is minimal.  The
+plugin prints &ldquo;Hello World&rdquo; in the logs or &ldquo;Hello {who-to-greet}&rdquo; if you
+provide a custom name.</p>
+<p>This guide uses the Squash Orchestrator Toolkit module to speed up development.  For more
+information, see the <code>squashtf/toolkit</code> repository.</p>
+<p>Once you complete this project, you should understand how to build your own
+provider plugin and test it in a workflow.</p>
+<p>To ensure your plugins are compatible with all Squash Orchestrator deployments (linux,
+windows, &hellip;), the packaged code you write should be pure and not rely on
+other non-portable binaries.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>You may find it helpful to have a basic understanding of Squash Orchestrator environment
+variables:</p>
+<ul>
+<li><a href="../../reference/using-environment-variables/">Using environment variables</a></li>
+</ul>
+<p>Before you begin, you&rsquo;ll need to create a repository.</p>
+<ol>
+<li>Create a new repository on GitHub/Gitlab/BitBucket/....  You can choose any
+   repository name or use &ldquo;hello-world-provider-plugin&rdquo; like this example.</li>
+<li>Clone your repository to your computer.</li>
+<li>From your terminal, change directories into your new repository.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> hello-world-provider-plugin
+</code></pre></div>
+<h2 id="create-a-web-service">Create a web service<a class="headerlink" href="#create-a-web-service" title="Permanent link">&para;</a></h2>
+<p>Provider plugins are simple web services.  They subscribe to specific events
+on startup, and publish events in response.</p>
+<p>The <code>squashtf/toolkit</code> module streamlines the process if you want to write your
+plugin in Python.  For more information on doing things in a less assisted way,
+see &ldquo;Writing plugins the hard way.&rdquo;</p>
+<p>In your new <code>hello-world-provider-plugin</code> directory, create a new <code>main.py</code>
+file.</p>
+<h3 id="mainpy"><code>main.py</code><a class="headerlink" href="#mainpy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># main.py</span>
+<span class="kn">from</span> <span class="nn">squashtf.toolkit</span> <span class="kn">import</span> <span class="n">make_plugin</span><span class="p">,</span> <span class="n">run_plugin</span>
+
+<span class="kn">from</span> <span class="nn">.implementation</span> <span class="kn">import</span> <span class="n">handler</span>
+
+<span class="n">plugin</span> <span class="o">=</span> <span class="n">make_plugin</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;helloworld&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;A helloworld provider.&#39;</span><span class="p">,</span>
+    <span class="n">provider</span><span class="o">=</span><span class="n">handler</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">run_plugin</span><span class="p">(</span><span class="n">plugin</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="create-a-plugin-metadata-file">Create a plugin metadata file<a class="headerlink" href="#create-a-plugin-metadata-file" title="Permanent link">&para;</a></h2>
+<p>Create a new <code>plugin.yaml</code> file in the <code>hello-world-provider-plugin</code> directory
+you created above.  For more information, see &ldquo;<a href="../metadata-syntax-for-squashtf-plugins/">Metadata syntax for Squash Orchestrator
+plugins</a>.&rdquo;</p>
+<h3 id="pluginyaml"><code>plugin.yaml</code><a class="headerlink" href="#pluginyaml" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># plugin.yaml</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="s">&#39;opentestfactory.org/v1alpha1&#39;</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="s">&#39;ProviderPlugin&#39;</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;HelloWorld&#39;</span>
+  <span class="nt">description</span><span class="p">:</span> <span class="s">&#39;Greet</span><span class="nv"> </span><span class="s">someone&#39;</span>
+<span class="nt">cmd</span><span class="p">:</span> <span class="s">&#39;python3</span><span class="nv"> </span><span class="s">-m</span><span class="nv"> </span><span class="s">main&#39;</span>
+<span class="nt">events</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">categoryPrefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">helloworld</span>
+  <span class="nt">category</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">greet</span>
+  <span class="nt">categoryVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">inputs</span><span class="p">:</span>
+  <span class="nt">who-to-greet</span><span class="p">:</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="s">&#39;Who</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">greet&#39;</span>
+    <span class="nt">required</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="nt">default</span><span class="p">:</span> <span class="s">&#39;World&#39;</span>
+<span class="nt">outputs</span><span class="p">:</span>
+  <span class="nt">random-number</span><span class="p">:</span>
+    <span class="nt">description</span><span class="p">:</span> <span class="s">&#39;Random</span><span class="nv"> </span><span class="s">number&#39;</span>
+    <span class="nt">value</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ steps.random-number-generator.outputs.random-id }}</span>
+</code></pre></div>
+<h2 id="writing-the-plugin-code">Writing the plugin code<a class="headerlink" href="#writing-the-plugin-code" title="Permanent link">&para;</a></h2>
+<p>Provider plugins must return a possibly empty collection of steps.  Each step
+has a name and a definition.  For more information about the <code>steps</code> syntax,
+see &ldquo;<a href="../../reference/workflows/">Workflow syntax for Squash Orchestrator</a>.&rdquo;</p>
+<p>Steps names and ids are local to the returned collection of steps.  They
+do not conflict with names and ids used in the referring workflow.</p>
+<p>The following Python script example uses the <code>who-to-greet</code> input variable
+to print &ldquo;Hello {who-to-greet}&rdquo; in the log file and maps the random generated
+number to the <code>random-number</code> output variable.</p>
+<h3 id="implementationpy"><code>implementation.py</code><a class="headerlink" href="#implementationpy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># implementation.py</span>
+
+<span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
+  <span class="n">steps</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s1">&#39;run&#39;</span><span class="p">:</span> <span class="s1">&#39;echo Hello &#39;</span> <span class="o">+</span> <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;who-to-greet&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;shell&#39;</span><span class="p">:</span> <span class="s1">&#39;bash&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;random-number-generator&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;run&#39;</span><span class="p">:</span> <span class="s1">&#39;echo &quot;::set-output name=random-id::$(echo $RANDOM)&quot;&#39;</span><span class="p">,</span>
+      <span class="s1">&#39;shell&#39;</span><span class="p">:</span> <span class="s1">&#39;bash&#39;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+  <span class="k">return</span> <span class="n">jobs</span>
+</code></pre></div>
+<h2 id="create-a-readme">Create a README<a class="headerlink" href="#create-a-readme" title="Permanent link">&para;</a></h2>
+<p>To let people know how to use your plugin, you can create a README file.  A
+README is most helpful when you plan to share your plugin publicly, but is also
+a great way to remind you or your team how to use the plugin.</p>
+<p>In your <code>hello-world-provider-plugin</code> directory, create a <code>README.md</code> file
+that specifies the following information:</p>
+<ul>
+<li>A detailed description of what the plugin does.</li>
+<li>Required input and outputs arguments.</li>
+<li>Optional input and outputs arguments.</li>
+<li>Environment variables the plugin uses.</li>
+<li>An example of how to use your plugin in a workflow.</li>
+</ul>
+<h3 id="readmemd"><code>README.md</code><a class="headerlink" href="#readmemd" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="gh"># Hello world provider plugin</span>
+
+This action prints &quot;Hello World&quot; or &quot;Hello&quot; + the name of a person to greet to
+the log.
+
+<span class="gu">## Inputs</span>
+
+<span class="gu">### `who-to-greets`</span>
+
+<span class="gs">**Required**</span> The name of the person to greet.  Default <span class="sb">`&quot;World&quot;`</span>.
+
+<span class="gu">## Outputs</span>
+
+<span class="gu">###  `random-id`</span>
+
+A random number.
+
+<span class="gu">## Example usage</span>
+
+uses: helloworld/greet@v1
+with:
+  who-to-greets: &#39;Mona the Octocat&#39;
+</code></pre></div>
+<h2 id="commit-tag-push-and-deploy-your-plugin">Commit, tag, push, and deploy your plugin<a class="headerlink" href="#commit-tag-push-and-deploy-your-plugin" title="Permanent link">&para;</a></h2>
+<p>From your terminal, commit your <code>plugin.yaml</code>, <code>implementation.py</code>,
+<code>helloworld.py</code>, and <code>README.md</code> files.</p>
+<p>It is best practice to also add a version tag for releases of your plugin.  For
+more information on versioning your plugin, see &ldquo;About plugins.&rdquo;</p>
+<div class="highlight"><pre><span></span><code>git add plugin.yaml implementation.py helloworld.py README.md
+git commit -m <span class="s2">&quot;My first plugin is ready&quot;</span>
+git tag -a -m <span class="s2">&quot;My first plugin release&quot;</span> v1
+git push --follow-tags
+</code></pre></div>
+<p>TODO (Deploy)</p>
+<h2 id="testing-out-your-plugin-in-a-workflow">Testing out your plugin in a workflow<a class="headerlink" href="#testing-out-your-plugin-in-a-workflow" title="Permanent link">&para;</a></h2>
+<p>Now you are ready to test your plugin out in a workflow.</p>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">jobs</span><span class="p">:</span>
+  <span class="nt">hello_world_job</span><span class="p">:</span>
+    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">linux</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">A job to say hello</span>
+    <span class="nt">steps</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">helloworld/greet@v1</span>
+      <span class="nt">with</span><span class="p">:</span>
+        <span class="nt">who-to-greets</span><span class="p">:</span> <span class="s">&quot;Mona</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">Octocat&quot;</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../creating-a-generator-plugin/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Creating a generator plugin
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../metadata-syntax-for-squashtf-plugins/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Metatadata syntax
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9b151c6a.min.js"></script>
+      
+    
+  </body>
+</html>

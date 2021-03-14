@@ -1,0 +1,1470 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
+    
+    
+      
+        <title>Workflow commands - Squash Orchestrator</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.77f3fd56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#workflow-commands-for-squash-orchestrator-plugins" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Squash Orchestrator" class="md-header__button md-logo" aria-label="Squash Orchestrator">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Squash Orchestrator
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Workflow commands
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Squash Orchestrator" class="md-nav__button md-logo" aria-label="Squash Orchestrator">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Squash Orchestrator
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        Quick Start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Guides
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/inception/" class="md-nav__link">
+        Inception
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/outputs/" class="md-nav__link">
+        Outputs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/repositories/" class="md-nav__link">
+        Repositories
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Learn Squash Orchestrator
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Learn Squash Orchestrator" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Learn Squash Orchestrator
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-squash-orchestrator/learn/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-squash-orchestrator/introduction-to-squash-orchestrator/" class="md-nav__link">
+        Introduction to Squash Orchestrator
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-squash-orchestrator/finding-and-customizing-plugins/" class="md-nav__link">
+        Finding and customizing plugins
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../learn-squash-orchestrator/essential-features-of-squash-orchestrator/" class="md-nav__link">
+        Essential features of Squash Orchestrator
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Creating plugins
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Creating plugins" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Creating plugins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plugins/about-plugins/" class="md-nav__link">
+        About plugins
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plugins/creating-a-generator-plugin/" class="md-nav__link">
+        Creating a generator plugin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plugins/creating-a-provider-plugin/" class="md-nav__link">
+        Creating a provider plugin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plugins/metadata-syntax-for-squashtf-plugins/" class="md-nav__link">
+        Metatadata syntax
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        Providers
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Providers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Providers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/actionprovider/" class="md-nav__link">
+        action
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/cucumber/" class="md-nav__link">
+        cucumber
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/cypress/" class="md-nav__link">
+        cypress
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/junit/" class="md-nav__link">
+        junit
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/robotframework/" class="md-nav__link">
+        robotframework
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../providers/soapui/" class="md-nav__link">
+        soapui
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        Configuring services
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Configuring services" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Configuring services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/actionprovider/" class="md-nav__link">
+        Action Provider service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/arranger/" class="md-nav__link">
+        Arranger service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/eventbus/" class="md-nav__link">
+        Event Bus
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/killswitch/" class="md-nav__link">
+        Killswitch service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/observer/" class="md-nav__link">
+        Observer service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/receptionist/" class="md-nav__link">
+        Receptionist service
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/sshee/" class="md-nav__link">
+        SSH Channel service
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+      
+      <label class="md-nav__link" for="__nav_9">
+        Reference
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflows/" class="md-nav__link">
+        Workflow syntax
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../context-and-expression-syntax/" class="md-nav__link">
+        Context and expression syntax
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Workflow commands
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Workflow commands
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-workflow-commands" class="md-nav__link">
+    About workflow commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-workflow-commands-to-access-toolkit-functions" class="md-nav__link">
+    Using workflow commands to access toolkit functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attach-an-artifact" class="md-nav__link">
+    Attach an artifact
+  </a>
+  
+    <nav class="md-nav" aria-label="Attach an artifact">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-an-output-parameter" class="md-nav__link">
+    Setting an output parameter
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting an output parameter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-a-debug-message" class="md-nav__link">
+    Setting a debug message
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting a debug message">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-a-warning-message" class="md-nav__link">
+    Setting a warning message
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting a warning message">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-an-error-message" class="md-nav__link">
+    Setting an error message
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting an error message">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masking-a-value-in-log" class="md-nav__link">
+    Masking a value in log
+  </a>
+  
+    <nav class="md-nav" aria-label="Masking a value in log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-masking-a-string" class="md-nav__link">
+    Example masking a string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-masking-an-environment-variable" class="md-nav__link">
+    Example masking an environment variable
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stopping-and-starting-workflow-commands" class="md-nav__link">
+    Stopping and starting workflow commands
+  </a>
+  
+    <nav class="md-nav" aria-label="Stopping and starting workflow commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-stopping-workflow-commands" class="md-nav__link">
+    Example stopping workflow commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-starting-workflow-commands" class="md-nav__link">
+    Example starting workflow commands
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sending-values-to-the-pre-and-post-actions" class="md-nav__link">
+    Sending values to the pre and post actions
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-environment-variables/" class="md-nav__link">
+        Environment variables
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-workflow-commands" class="md-nav__link">
+    About workflow commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-workflow-commands-to-access-toolkit-functions" class="md-nav__link">
+    Using workflow commands to access toolkit functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attach-an-artifact" class="md-nav__link">
+    Attach an artifact
+  </a>
+  
+    <nav class="md-nav" aria-label="Attach an artifact">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-an-output-parameter" class="md-nav__link">
+    Setting an output parameter
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting an output parameter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-a-debug-message" class="md-nav__link">
+    Setting a debug message
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting a debug message">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_2" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-a-warning-message" class="md-nav__link">
+    Setting a warning message
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting a warning message">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_3" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-an-error-message" class="md-nav__link">
+    Setting an error message
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting an error message">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example_4" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#masking-a-value-in-log" class="md-nav__link">
+    Masking a value in log
+  </a>
+  
+    <nav class="md-nav" aria-label="Masking a value in log">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-masking-a-string" class="md-nav__link">
+    Example masking a string
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-masking-an-environment-variable" class="md-nav__link">
+    Example masking an environment variable
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stopping-and-starting-workflow-commands" class="md-nav__link">
+    Stopping and starting workflow commands
+  </a>
+  
+    <nav class="md-nav" aria-label="Stopping and starting workflow commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-stopping-workflow-commands" class="md-nav__link">
+    Example stopping workflow commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-starting-workflow-commands" class="md-nav__link">
+    Example starting workflow commands
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sending-values-to-the-pre-and-post-actions" class="md-nav__link">
+    Sending values to the pre and post actions
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="workflow-commands-for-squash-orchestrator-plugins">Workflow commands for Squash Orchestrator Plugins<a class="headerlink" href="#workflow-commands-for-squash-orchestrator-plugins" title="Permanent link">&para;</a></h1>
+<p>You can use workflow commands when running shell commands in a workflow or in
+a plugin&rsquo;s code.</p>
+<h2 id="about-workflow-commands">About workflow commands<a class="headerlink" href="#about-workflow-commands" title="Permanent link">&para;</a></h2>
+<p>Plugins can communicate with the runner machine to set environment variables,
+output values used by other plugins, add debug messages to the output logs, and
+other tasks.</p>
+<p>Most workflow commands use the <code>echo</code> command in a specific format, while
+others are invoked by writing to a file.  For more information, see
+&ldquo;Environment Files.&rdquo;</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;::workflow-command parameter1={data},parameter2={data}::{command value}&quot;</span>
+</code></pre></div>
+<p><strong>Note</strong>: Workflow command and parameter names are not case-sensitive.</p>
+<p><strong>Warning</strong>: If you are using Command Prompt, omit double quote characters
+(<code>"</code>) when using workflow commands.</p>
+<h2 id="using-workflow-commands-to-access-toolkit-functions">Using workflow commands to access toolkit functions<a class="headerlink" href="#using-workflow-commands-to-access-toolkit-functions" title="Permanent link">&para;</a></h2>
+<p>The <code>squashtf/toolkit</code> module includes several functions that can be
+executed as workflow commands.  Use the <code>::</code> syntax to run the workflow
+commands within your YAML file; these commands are then sent to the runner over
+<code>stdout</code>.  For example, instead of using code to set an output, as below:</p>
+<div class="highlight"><pre><span></span><code>core.setOutput(&#39;SELECTED_COLOR&#39;, &#39;green&#39;);
+</code></pre></div>
+<p>You can use the <code>set-output</code> command in your workflow to set the same value:</p>
+<div class="highlight"><pre><span></span><code>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Set selected color</span>
+        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &#39;::set-output name=SELECTED_COLOR::green&#39;</span>
+        <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">random-color-generator</span>
+      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Get color</span>
+        <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &#39;The selected color is&#39; ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}</span>
+</code></pre></div>
+<p>The following table shows which toolkit functions are available within a
+workflow:</p>
+<table>
+<thead>
+<tr>
+<th>Toolkit function</th>
+<th>Equivalent workflow command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>core.addPath</td>
+<td>Accessible using environment file <code>SQUASHTF_PATH</code></td>
+</tr>
+<tr>
+<td>core.debug</td>
+<td><code>debug</code></td>
+</tr>
+<tr>
+<td>core.error</td>
+<td><code>error</code></td>
+</tr>
+<tr>
+<td>core.endGroup</td>
+<td><code>endgroup</code></td>
+</tr>
+<tr>
+<td>core.exportVariable</td>
+<td>Accessible using environment file <code>SQUASHTF_VARIABLES</code></td>
+</tr>
+<tr>
+<td>core.getInput</td>
+<td>Accessible using environment variable <code>INPUT_{NAME}</code></td>
+</tr>
+<tr>
+<td>core.getState</td>
+<td>Accessible using environment variable <code>STATE_{NAME}</code></td>
+</tr>
+<tr>
+<td>core.isDebug</td>
+<td>Accessible using environment variable <code>RUNNER_DEBUG</code></td>
+</tr>
+<tr>
+<td>core.attach</td>
+<td><code>attach</code></td>
+</tr>
+<tr>
+<td>core.saveState</td>
+<td><code>save-state</code></td>
+</tr>
+<tr>
+<td>core.setFailed</td>
+<td>Used as a shortcut for <code>::error</code> and <code>exit 1</code></td>
+</tr>
+<tr>
+<td>core.setOutput</td>
+<td><code>set-output</code></td>
+</tr>
+<tr>
+<td>core.setSecret</td>
+<td><code>add-mask</code></td>
+</tr>
+<tr>
+<td>core.startGroup</td>
+<td><code>group</code></td>
+</tr>
+<tr>
+<td>core.warning</td>
+<td><code>warning file</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="attach-an-artifact">Attach an artifact<a class="headerlink" href="#attach-an-artifact" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>::attach::{path}
+</code></pre></div>
+<p>Sets an action&rsquo;s attachment.</p>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;::attach::foobar.yaml</span>
+</code></pre></div>
+<h2 id="setting-an-output-parameter">Setting an output parameter<a class="headerlink" href="#setting-an-output-parameter" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>::set-output name={name}::{value}
+</code></pre></div>
+<p>Sets an action&rsquo;s output parameter.</p>
+<p>Optionally, you can also declare output parameters in an plugin&rsquo;s metadata
+file.  For more information, see &ldquo;<a href="../../plugins/metadata-syntax-for-squashtf-plugins/">Metadata syntax for Squash Orchestrator Plugins</a>.&rdquo;</p>
+<h3 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;::set-output name=action_fruit::strawberry&quot;</span>
+</code></pre></div>
+<h2 id="setting-a-debug-message">Setting a debug message<a class="headerlink" href="#setting-a-debug-message" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>::debug::{message}
+</code></pre></div>
+<p>Prints a debug message to the log.  You must create a secret named
+<code>ACTIONS_STEP_DEBUG</code> with the value <code>true</code> to see the debug messages set by
+this command in the log.  For more information, see &ldquo;Managing a workflow run.&rdquo;</p>
+<h3 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;::debug::Set the Octocat variable&quot;</span>
+</code></pre></div>
+<h2 id="setting-a-warning-message">Setting a warning message<a class="headerlink" href="#setting-a-warning-message" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>::warning file={name},line={line},col={col}::{message}
+</code></pre></div>
+<p>Creates a warning message and prints the message to the log.  You can
+optionally provide a filename (<code>file</code>), line number (<code>line</code>), and column
+(<code>col</code>) number where the warning occurred.</p>
+<h3 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;::warning file=app.js,line=1,col=5::Missing semicolon&quot;</span>
+</code></pre></div>
+<h2 id="setting-an-error-message">Setting an error message<a class="headerlink" href="#setting-an-error-message" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>::error file={name},line={line},col={col}::{message}
+</code></pre></div>
+<p>Creates an error message and prints the message to the log.  You can optionally
+provide a filename (<code>file</code>), line number (<code>line</code>), and column (<code>col</code>) number
+where the warning occurred.</p>
+<h3 id="example_4">Example<a class="headerlink" href="#example_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;::error file=app.js,line=10,col=15::Something went wrong&quot;</span>
+</code></pre></div>
+<h2 id="masking-a-value-in-log">Masking a value in log<a class="headerlink" href="#masking-a-value-in-log" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>::add-mask::{value}
+</code></pre></div>
+<p>Masking a value prevents a string or variable from being printed in the log.
+Each masked word separated by whitespace is replaced with the <code>*</code> character.
+You can use an environment variable or string for the mask&rsquo;s <code>value</code>.</p>
+<h3 id="example-masking-a-string">Example masking a string<a class="headerlink" href="#example-masking-a-string" title="Permanent link">&para;</a></h3>
+<p>When you print <code>"Mona The Octocat"</code> in the log, you&rsquo;ll see <code>"***"</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;::add-mask::Mona The Octocat&quot;</span>
+</code></pre></div>
+<h3 id="example-masking-an-environment-variable">Example masking an environment variable<a class="headerlink" href="#example-masking-an-environment-variable" title="Permanent link">&para;</a></h3>
+<p>When you print the variable <code>MY_NAME</code> or the value <code>"Mona The Octocat"</code> in the
+log, you&rsquo;ll see <code>"***"</code> instead of <code>"Mona The Octocat"</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">MY_NAME</span><span class="o">=</span><span class="s2">&quot;Mona The Octocat&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;::add-mask::</span><span class="nv">$MY_NAME</span><span class="s2">&quot;</span>
+</code></pre></div>
+<h2 id="stopping-and-starting-workflow-commands">Stopping and starting workflow commands<a class="headerlink" href="#stopping-and-starting-workflow-commands" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>::stop-commands::{endtoken}
+</code></pre></div>
+<p>Stops processing any workflow commands.  This special command allows you to log
+anything without accidentally running a workflow command.  For example, you
+could stop logging to output an entire script that has comments.</p>
+<h3 id="example-stopping-workflow-commands">Example stopping workflow commands<a class="headerlink" href="#example-stopping-workflow-commands" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;::stop-commands::pause-logging&quot;</span>
+</code></pre></div>
+<p>To start workflow commands, pass the token that you used to stop workflow
+commands.</p>
+<div class="highlight"><pre><span></span><code>::{endtoken}::
+</code></pre></div>
+<h3 id="example-starting-workflow-commands">Example starting workflow commands<a class="headerlink" href="#example-starting-workflow-commands" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;::pause-logging::&quot;</span>
+</code></pre></div>
+<h2 id="sending-values-to-the-pre-and-post-actions">Sending values to the pre and post actions<a class="headerlink" href="#sending-values-to-the-pre-and-post-actions" title="Permanent link">&para;</a></h2>
+<p>You can use the <code>save-state</code> command to create environment variables for
+sharing with your workflow&rsquo;s <code>pre:</code> or <code>post:</code> actions.  For example, you can
+create a file with the <code>pre:</code> action, pass the file location to the <code>main:</code>
+action, and then use the <code>post:</code> action to delete the file.  Alternatively, you
+could create a file with the <code>main:</code> action, pass the file location to the
+<code>post:</code> action, and also use the <code>post:</code> action to delete the file.</p>
+<p>If you have multiple <code>pre:</code> or <code>post:</code> actions, you can only access the saved
+value in the action where <code>save-state</code> was used.  For more information on the
+<code>post:</code> action, see &ldquo;Metadata syntax for Squash Orchestrator Plugins.&rdquo;</p>
+<p>The <code>save-state</code> command can only be run within an action, and is not available
+to YAML files.  The saved value is stored as an environment value with the
+<code>STATE_</code> prefix.</p>
+<p>This example uses JavaScript to run the save-state command.  The resulting
+environment variable is named <code>STATE_processID</code> with the value of 12345:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;::save-state name=processID::12345&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>The <code>STATE_processID</code> variable is then exclusively available to the cleanup
+script running under the main action.  This example runs in main and uses
+JavaScript to display the value assigned to the <code>STATE_processID</code> environment
+variable:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The running PID from the main action is: &quot;</span> <span class="o">+</span>  <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">STATE_processID</span><span class="p">);</span>
+</code></pre></div>
+<h1 id="environments-files">Environments Files<a class="headerlink" href="#environments-files" title="Permanent link">&para;</a></h1>
+<p>During the execution of a workflow, the runner generates temporary files that
+can be used to perform certain actions.  The path to these files are exposed
+via environment variables.  You will need t use UTF-8 encoding when writing to
+these files to ensure proper processing of the commands.  Multiple commands
+can be written to the same file, separated by newlines.</p>
+<p><strong>Warning</strong>: Powershell does not use UTF-8 by default.  Make sure you write
+files using the correct encoding.  For example, you need to set UTF-8 encoding
+when you set the path:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">steps</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;mypath&quot; | Out-File -FilePath $env:SQUASHTF_PATH -Encoding utf8</span>
+</code></pre></div>
+<h2 id="setting-an-environment-variable">Setting an environment variable<a class="headerlink" href="#setting-an-environment-variable" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;{name}={value}&quot;</span> &gt;&gt; <span class="nv">$SQUASHTF_VARIABLES</span>
+</code></pre></div>
+<p>Creates or updates an environment variable for any steps running next in a job.
+The action that creates or updates the environment variable does not have
+access to the new value, but all subsequent steps in a job will have access.
+Environment variables are case-sensitive and you can include punctuation.</p>
+<h3 id="example_5">Example<a class="headerlink" href="#example_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;action_state=yellow&quot;</span> &gt;&gt; <span class="nv">$SQUASHTF_VARIABLES</span>
+</code></pre></div>
+<p>Running <code>$action_state</code> in a future step will now return <code>yellow</code>.</p>
+<h3 id="multiline-strings">Multiline strings<a class="headerlink" href="#multiline-strings" title="Permanent link">&para;</a></h3>
+<p>For multiline strings, you may use a delimiter with the following syntax:</p>
+<div class="highlight"><pre><span></span><code><span class="o">{</span>name<span class="o">}</span>&lt;&lt;<span class="o">{</span>delimiter<span class="o">}</span>
+<span class="o">{</span>value<span class="o">}</span>
+<span class="o">{</span>delimiter<span class="o">}</span>
+</code></pre></div>
+<h3 id="example_6">Example<a class="headerlink" href="#example_6" title="Permanent link">&para;</a></h3>
+<p>In this example, we use <code>EOF</code> as a delimiter and set the <code>JSON_RESPONSE</code>
+environment variable to the value of the curl response.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">steps</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Set the value</span>
+    <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">step_one</span>
+    <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+        <span class="no">echo &#39;JSON_RESPONSE&lt;&lt;EOF&#39; &gt;&gt; $SQUASHTF_VARIABLES</span>
+        <span class="no">curl https://httpbin.og/json &gt;&gt; $SQUASHTF_VARIABLES</span>
+        <span class="no">echo &#39;EOF&#39; &gt;&gt; $SQUASHTF_VARIABLES</span>
+</code></pre></div>
+<h3 id="adding-a-system-path">Adding a system path<a class="headerlink" href="#adding-a-system-path" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;{path}&quot;</span> &gt;&gt; <span class="nv">$SQUASHTF_PATH</span>
+</code></pre></div>
+<p>Prepends a directory to the system <code>PATH</code> variable for all subsequent steps
+in the current job.  The currently running step cannot access the path
+variable.</p>
+<h3 id="example_7">Example<a class="headerlink" href="#example_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;/path/to/dir&quot;</span> &gt;&gt; <span class="nv">$SQUASHTF_PATH</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../context-and-expression-syntax/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Context and expression syntax
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../using-environment-variables/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Environment variables
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.9b151c6a.min.js"></script>
+      
+    
+  </body>
+</html>
