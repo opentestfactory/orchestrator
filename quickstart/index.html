@@ -8,13 +8,15 @@
       
       
       
+        <meta name="author" content="mlafaix@henix.com">
+      
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
     
     
       
-        <title>Quick Start - Squash Orchestrator</title>
+        <title>Quick Start - OpenTestFactory Orchestrator</title>
       
     
     
@@ -58,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#quickstart-for-squash-orchestrator" class="md-skip">
+        <a href="#quickstart-for-opentestfactory-orchestrator" class="md-skip">
           Skip to content
         </a>
       
@@ -71,7 +73,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Squash Orchestrator" class="md-header__button md-logo" aria-label="Squash Orchestrator">
+    <a href=".." title="OpenTestFactory Orchestrator" class="md-header__button md-logo" aria-label="OpenTestFactory Orchestrator">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -84,7 +86,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Squash Orchestrator
+            OpenTestFactory Orchestrator
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -154,13 +156,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Squash Orchestrator" class="md-nav__button md-logo" aria-label="Squash Orchestrator">
+    <a href=".." title="OpenTestFactory Orchestrator" class="md-nav__button md-logo" aria-label="OpenTestFactory Orchestrator">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    Squash Orchestrator
+    OpenTestFactory Orchestrator
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -306,6 +308,18 @@
           Guides
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guides/agent/" class="md-nav__link">
+        Agents
+      </a>
+    </li>
+  
+
           
             
   
@@ -535,7 +549,7 @@
   
     <li class="md-nav__item">
       <a href="../providers/actionprovider/" class="md-nav__link">
-        action
+        actions
       </a>
     </li>
   
@@ -878,11 +892,12 @@
               
                 
                 
-                <h1 id="quickstart-for-squash-orchestrator">Quickstart for Squash Orchestrator<a class="headerlink" href="#quickstart-for-squash-orchestrator" title="Permanent link">&para;</a></h1>
-<p>Add a Squash Orchestrator workflow to an existing repository in 5 minutes or less.</p>
+                <h1 id="quickstart-for-opentestfactory-orchestrator">Quickstart for OpenTestFactory Orchestrator<a class="headerlink" href="#quickstart-for-opentestfactory-orchestrator" title="Permanent link">&para;</a></h1>
+<p>Add an OpenTestFactory Orchestrator workflow to an existing repository in 5
+minutes or less.</p>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>You only need an existing Squash Orchestrator service to create and run a Squash
-Orchestrator workflow.  In this guide, you will add a workflow that run tests using
+<p>You only need an existing OpenTestFactory Orchestrator service to create and
+run a workflow.  In this guide, you will add a workflow that run tests using
 the robotframework/robot action.  The workflow uses Robotframework to run a set of
 tests in an existing <em>execution environment</em>.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
@@ -892,23 +907,24 @@ tests in an existing <em>execution environment</em>.</p>
 <div class="highlight"><pre><span></span><code>docker run -d <span class="se">\</span>
   --name robotenv <span class="se">\</span>
   --env <span class="nv">PASSWORD_ACCESS</span><span class="o">=</span><span class="nb">true</span> <span class="se">\</span>
-  --env <span class="nv">USER_NAME</span><span class="o">=</span>squash <span class="se">\</span>
+  --env <span class="nv">USER_NAME</span><span class="o">=</span>otf <span class="se">\</span>
   --env <span class="nv">USER_PASSWORD</span><span class="o">=</span>secret <span class="se">\</span>
-  squashtest/agent-robotframework:latest
+  opentestfactory/agent-robotframework:latest
 </code></pre></div>
 </li>
 <li>
-<p>Prepare a Squash Orchestrator that is linked to this execution environment</p>
+<p>Prepare an OpenTestFactory Orchestrator that is linked to this execution
+   environment</p>
 <div class="highlight"><pre><span></span><code>docker run -d <span class="se">\</span>
   --name orchestrator <span class="se">\</span>
   --link<span class="o">=</span>robotenv <span class="se">\</span>
   -p <span class="m">7774</span>:7774 <span class="se">\</span>
   -e <span class="nv">SSH_CHANNEL_HOST</span><span class="o">=</span>robotenv <span class="se">\</span>
-  -e <span class="nv">SSH_CHANNEL_USER</span><span class="o">=</span>squash <span class="se">\</span>
+  -e <span class="nv">SSH_CHANNEL_USER</span><span class="o">=</span>otf <span class="se">\</span>
   -e <span class="nv">SSH_CHANNEL_PASSWORD</span><span class="o">=</span>secret <span class="se">\</span>
   -e <span class="nv">SSH_CHANNEL_TAGS</span><span class="o">=</span>ssh,linux,robotframework <span class="se">\</span>
   -e <span class="nv">SSH_CHANNEL_PORT</span><span class="o">=</span><span class="m">2222</span> <span class="se">\</span>
-  squashtest/squash-orchestrator:latest
+  opentestfactory/allinone:latest
 </code></pre></div>
 </li>
 <li>
@@ -980,20 +996,22 @@ touch Squashfile
 <p>In a more realistic case, you would upload your tests execution reports to either
    a test management system or a shared directory.</p>
 <h2 id="more-workflow-templates">More workflow templates<a class="headerlink" href="#more-workflow-templates" title="Permanent link">&para;</a></h2>
-<p>Squash provides preconfigured workflow templates that you can customize to create your
-own testing workflows.</p>
-<p>You can browse the full list of workflow templates in the TODO repository.</p>
+<p>The OpenTestFactory provides preconfigured workflow templates that you can customize
+to create your own testing workflows.</p>
+<p>You can browse the full list of workflow templates in the opentestfactory/templates
+repository.</p>
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p>The robotframework workflow you just added can be integrated in your CI/CD toolchain
 to run any time code is pushed to your repository to help you spot errors and
 inconsistencies in your code.  But this is only the beginning of what you can do
-with the Squash orchestrator.  Your repository can contain multiple workflows that
+with the OpenTestFactory orchestrator.  Your repository can contain multiple workflows that
 trigger different jobs based on different events.  The Squash orchestrator can help
 you automate nearly every aspect of your applicating test processes.  Ready to get started?
-Here are some helpful resources for taking your next steps with the Squash orchestrator:</p>
+Here are some helpful resources for taking your next steps with the OpenTestFactory
+orchestrator:</p>
 <ul>
-<li>&ldquo;<a href="../learn-squash-orchestrator/learn/">Learn Squash Orchestrator</a>&rdquo; for an in-depth
-  tutorial</li>
+<li>&ldquo;<a href="../learn-squash-orchestrator/learn/">Learn OpenTestFactory Orchestrator</a>&rdquo; for
+  an in-depth tutorial</li>
 <li>&ldquo;Guides&rdquo; for specific uses cases and examples</li>
 <li><a href="../providers/robot/">robotframework/robot</a> for more details about configuring
   the Robotframework action</li>
@@ -1049,6 +1067,10 @@ Here are some helpful resources for taking your next steps with the Squash orche
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; Henix.  All rights reserved.
+          </div>
         
         Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">

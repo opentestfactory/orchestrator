@@ -8,13 +8,15 @@
       
       
       
+        <meta name="author" content="mlafaix@henix.com">
+      
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
     
     
       
-        <title>Inception - Squash Orchestrator</title>
+        <title>Inception - OpenTestFactory Orchestrator</title>
       
     
     
@@ -71,7 +73,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Squash Orchestrator" class="md-header__button md-logo" aria-label="Squash Orchestrator">
+    <a href="../.." title="OpenTestFactory Orchestrator" class="md-header__button md-logo" aria-label="OpenTestFactory Orchestrator">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -84,7 +86,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Squash Orchestrator
+            OpenTestFactory Orchestrator
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -154,13 +156,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Squash Orchestrator" class="md-nav__button md-logo" aria-label="Squash Orchestrator">
+    <a href="../.." title="OpenTestFactory Orchestrator" class="md-nav__button md-logo" aria-label="OpenTestFactory Orchestrator">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    Squash Orchestrator
+    OpenTestFactory Orchestrator
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -235,6 +237,18 @@
           Guides
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../agent/" class="md-nav__link">
+        Agents
+      </a>
+    </li>
+  
+
           
             
   
@@ -516,7 +530,7 @@
   
     <li class="md-nav__item">
       <a href="../../providers/actionprovider/" class="md-nav__link">
-        action
+        actions
       </a>
     </li>
   
@@ -852,7 +866,7 @@ that you can use for this purpose.</p>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mysquashtm</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">squashtm</span>
     <span class="nt">endpoint</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://squashtm.example.com/squash</span>
-    <span class="nt">login</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$${{ variables.SQUASH_USER }}</span>
+    <span class="nt">login</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ variables.SQUASH_USER }}</span>
     <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ variables.SQUASH_PASSWORD }}</span>
   <span class="nt">files</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">report1</span>
@@ -935,7 +949,7 @@ be correctly caught if they are complex or guarded.</p>
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../../installation/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../agent/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -944,7 +958,7 @@ be correctly caught if they are complex or guarded.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Installation
+              Agents
             </div>
           </div>
         </a>
@@ -969,6 +983,10 @@ be correctly caught if they are complex or guarded.</p>
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; Henix.  All rights reserved.
+          </div>
         
         Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">

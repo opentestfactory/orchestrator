@@ -8,13 +8,15 @@
       
       
       
+        <meta name="author" content="mlafaix@henix.com">
+      
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
     
     
       
-        <title>Repositories - Squash Orchestrator</title>
+        <title>Repositories - OpenTestFactory Orchestrator</title>
       
     
     
@@ -71,7 +73,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Squash Orchestrator" class="md-header__button md-logo" aria-label="Squash Orchestrator">
+    <a href="../.." title="OpenTestFactory Orchestrator" class="md-header__button md-logo" aria-label="OpenTestFactory Orchestrator">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -84,7 +86,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Squash Orchestrator
+            OpenTestFactory Orchestrator
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -154,13 +156,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Squash Orchestrator" class="md-nav__button md-logo" aria-label="Squash Orchestrator">
+    <a href="../.." title="OpenTestFactory Orchestrator" class="md-nav__button md-logo" aria-label="OpenTestFactory Orchestrator">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    Squash Orchestrator
+    OpenTestFactory Orchestrator
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -241,6 +243,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../agent/" class="md-nav__link">
+        Agents
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../inception/" class="md-nav__link">
         Inception
       </a>
@@ -305,6 +319,26 @@
         <li class="md-nav__item">
   <a href="#credentials" class="md-nav__link">
     Credentials
+  </a>
+  
+    <nav class="md-nav" aria-label="Credentials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
   </a>
   
 </li>
@@ -509,7 +543,7 @@
   
     <li class="md-nav__item">
       <a href="../../providers/actionprovider/" class="md-nav__link">
-        action
+        actions
       </a>
     </li>
   
@@ -809,6 +843,26 @@
     Credentials
   </a>
   
+    <nav class="md-nav" aria-label="Credentials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    Next Steps
+  </a>
+  
 </li>
       
     </ul>
@@ -825,19 +879,49 @@
                 
                 
                 <h1 id="repositories">Repositories<a class="headerlink" href="#repositories" title="Permanent link">&para;</a></h1>
-<p>In a typical workflow, you will checkout code at the beginning of each job.</p>
+<p>In a typical workflow, you will checkout code at the beginning of each job.  If
+you have many job in your workflow, duplicating the repository parameters can
+become tedious.</p>
+<p>Workflows allow you to define <code>repository</code> resources, that you can share between
+your jobs.</p>
+<p>Additionally, those resources can carry their own specific credentials, so that
+job generators can omit them.</p>
 <h2 id="repositories-resources">Repositories resources<a class="headerlink" href="#repositories-resources" title="Permanent link">&para;</a></h2>
+<p>Repository resources are defined in the <code>.resources.repositories</code> part of a workflow.</p>
+<p>There can be any number of repositories resources defined, and they may refer
+to the same repository, but they all must have different names.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">resources</span><span class="p">:</span>
   <span class="nt">repositories</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">foo</span>
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">github</span>
     <span class="nt">repository</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">a/b.git</span>
     <span class="nt">endpoint</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bar</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gitlab</span>
+    <span class="nt">repository</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">c/d.git</span>
+    <span class="nt">endpoint</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">httpd://gitlab.com</span>
 </code></pre></div>
+<p>Once defined, those repository resources can be referenced either explicitly or
+implicitly in your jobs:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">jobs</span><span class="p">:</span>
+  <span class="nt">job1</span><span class="p">:</span>
+    <span class="nt">steps</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+      <span class="nt">with</span><span class="p">:</span>
+        <span class="nt">repository</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ resources.repositories.foo }}</span>
+    <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+      <span class="nt">with</span><span class="p">:</span>
+        <span class="nt">repository</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://gitlab.com/c/d.git</span>
+</code></pre></div>
+<p>The explicit reference uses the <em>expression</em> syntax.  The implicit
+reference is used if the endpoint and repository matches.</p>
 <h2 id="credentials">Credentials<a class="headerlink" href="#credentials" title="Permanent link">&para;</a></h2>
 <p>If you define a repository in the <code>resources</code> section, all checkouts of this
 repository will use the credentials you specified in the <code>resources</code> section, not
 the ones you may have specified in the checkout action.</p>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
+<p>In the following example, the checkout will use the credentials specified in
+<code>variables.user</code> and <code>variables.pwd</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my workflow</span>
 <span class="nt">resources</span><span class="p">:</span>
@@ -848,11 +932,39 @@ the ones you may have specified in the checkout action.</p>
     <span class="nt">endpoint</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://${{ variables.user }}:${{ variables.pwd }}@github.com/</span>
 <span class="nt">jobs</span><span class="p">:</span>
   <span class="nt">job1</span><span class="p">:</span>
+    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">linux</span>
     <span class="nt">steps</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
       <span class="nt">with</span><span class="p">:</span>
         <span class="nt">repository</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://github.com/awesome/stuff.git</span>
 </code></pre></div>
+<p>In that almost identical example, the checkout will also use the credentials
+specified in <code>variables.user</code> and <code>variables.pwd</code>, not <code>me</code> and <code>secret</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my workflow</span>
+<span class="nt">resources</span><span class="p">:</span>
+  <span class="nt">repositories</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">awesome</span>
+    <span class="nt">repository</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">awesome/stuff.git</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gitlab</span>
+    <span class="nt">endpoint</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://${{ variables.user }}:${{ variables.pwd }}@gitlab.com/</span>
+<span class="nt">jobs</span><span class="p">:</span>
+  <span class="nt">job1</span><span class="p">:</span>
+    <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">linux</span>
+    <span class="nt">steps</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+      <span class="nt">with</span><span class="p">:</span>
+        <span class="nt">repository</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://me:secret@gitlab.com/awesome/stuff.git</span>
+</code></pre></div>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p>Here are some helpful resources for taking your next steps with the OpenTestFactory
+orchestrator:</p>
+<ul>
+<li>&ldquo;<a href="../../providers/actionprovider/#actionscheckoutv2">actions/checkout@v2</a>&rdquo; for
+  more details about configuring the checkout action</li>
+<li>&ldquo;Guides&rdquo; for specific uses cases and examples</li>
+<li>&ldquo;<a href="context-and-expression-syntax.md">Context and expression syntax for orchestrator Workflows</a>&rdquo; for more information on expressions</li>
+</ul>
                 
               
               
@@ -904,6 +1016,10 @@ the ones you may have specified in the checkout action.</p>
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; Henix.  All rights reserved.
+          </div>
         
         Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">

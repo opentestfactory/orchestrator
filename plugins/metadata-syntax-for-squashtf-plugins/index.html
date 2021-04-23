@@ -8,13 +8,15 @@
       
       
       
+        <meta name="author" content="mlafaix@henix.com">
+      
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
     
     
       
-        <title>Metatadata syntax - Squash Orchestrator</title>
+        <title>Metatadata syntax - OpenTestFactory Orchestrator</title>
       
     
     
@@ -58,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#metadata-syntax-for-squash-orchestrator-plugins" class="md-skip">
+        <a href="#metadata-syntax-for-opentestfactory-orchestrator-plugins" class="md-skip">
           Skip to content
         </a>
       
@@ -71,7 +73,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Squash Orchestrator" class="md-header__button md-logo" aria-label="Squash Orchestrator">
+    <a href="../.." title="OpenTestFactory Orchestrator" class="md-header__button md-logo" aria-label="OpenTestFactory Orchestrator">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -84,7 +86,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Squash Orchestrator
+            OpenTestFactory Orchestrator
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -154,13 +156,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Squash Orchestrator" class="md-nav__button md-logo" aria-label="Squash Orchestrator">
+    <a href="../.." title="OpenTestFactory Orchestrator" class="md-nav__button md-logo" aria-label="OpenTestFactory Orchestrator">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    Squash Orchestrator
+    OpenTestFactory Orchestrator
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -233,6 +235,18 @@
           Guides
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/agent/" class="md-nav__link">
+        Agents
+      </a>
+    </li>
+  
+
           
             
   
@@ -452,8 +466,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#about-yaml-syntax-for-squash-orchestrator-plugins" class="md-nav__link">
-    About YAML syntax for Squash Orchestrator plugins
+  <a href="#about-yaml-syntax-for-opentestfactory-orchestrator-plugins" class="md-nav__link">
+    About YAML syntax for OpenTestFactory orchestrator plugins
   </a>
   
 </li>
@@ -700,7 +714,7 @@
   
     <li class="md-nav__item">
       <a href="../../providers/actionprovider/" class="md-nav__link">
-        action
+        actions
       </a>
     </li>
   
@@ -989,8 +1003,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#about-yaml-syntax-for-squash-orchestrator-plugins" class="md-nav__link">
-    About YAML syntax for Squash Orchestrator plugins
+  <a href="#about-yaml-syntax-for-opentestfactory-orchestrator-plugins" class="md-nav__link">
+    About YAML syntax for OpenTestFactory orchestrator plugins
   </a>
   
 </li>
@@ -1206,10 +1220,10 @@
               
                 
                 
-                <h1 id="metadata-syntax-for-squash-orchestrator-plugins">Metadata syntax for Squash Orchestrator plugins<a class="headerlink" href="#metadata-syntax-for-squash-orchestrator-plugins" title="Permanent link">&para;</a></h1>
+                <h1 id="metadata-syntax-for-opentestfactory-orchestrator-plugins">Metadata syntax for OpenTestFactory orchestrator plugins<a class="headerlink" href="#metadata-syntax-for-opentestfactory-orchestrator-plugins" title="Permanent link">&para;</a></h1>
 <p>You can create plugins to perform tasks in your workflows.  Plugins require a
 metadata file that uses YAML syntax.</p>
-<h2 id="about-yaml-syntax-for-squash-orchestrator-plugins">About YAML syntax for Squash Orchestrator plugins<a class="headerlink" href="#about-yaml-syntax-for-squash-orchestrator-plugins" title="Permanent link">&para;</a></h2>
+<h2 id="about-yaml-syntax-for-opentestfactory-orchestrator-plugins">About YAML syntax for OpenTestFactory orchestrator plugins<a class="headerlink" href="#about-yaml-syntax-for-opentestfactory-orchestrator-plugins" title="Permanent link">&para;</a></h2>
 <p>Plugins require a metadata file.  The metadata filename must be either
 <code>plugin.yml</code> or <code>plugin.yaml</code>.  The data in the metadata file defines the
 inputs, outputs and main entrypoint for your plugin.</p>
@@ -1264,16 +1278,16 @@ events.</p>
 </code></pre></div>
 <h2 id="inputs"><code>inputs</code><a class="headerlink" href="#inputs" title="Permanent link">&para;</a></h2>
 <p><strong>Optional</strong> Input parameters allow you to specify data that the plugin expects
-to use during runtime.  Squash Orchestrator stores input parameters as environment
-variables.  Input ids with uppercase letters are converted to lowercase during
-runtime.  We recommended using lowercase input ids.</p>
+to use during runtime.  The OpenTestFactory orchestrator stores input parameters
+as environment variables.  Input ids with uppercase letters are converted to
+lowercase during runtime.  We recommended using lowercase input ids.</p>
 <h3 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h3>
 <p>This example configures two inputs: numOctocats and octocatEyeColor.
 The numOctocats input is not required and will default to a value of &lsquo;1&rsquo;.  The
 octocatEyeColor input is required and has no default value.  Workflow files that
 use this plugin must use the <code>with</code> keyword to set an input value for
 octocatEyeColor.  For more information about the <code>with</code> syntax, see &ldquo;<a href="../../reference/workflows/">Workflow
-syntax for Squash Orchestrator</a>.&rdquo;</p>
+syntax for OpenTestFactory orchestrator</a>.&rdquo;</p>
 <div class="highlight"><pre><span></span><code><span class="nt">inputs</span><span class="p">:</span>
   <span class="nt">numOctocats</span><span class="p">:</span>
     <span class="nt">description</span><span class="p">:</span> <span class="s">&#39;Number</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Octocats&#39;</span>
@@ -1284,7 +1298,7 @@ syntax for Squash Orchestrator</a>.&rdquo;</p>
     <span class="nt">required</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
 <p>When you specify an input to a plugin in a workflow file or use a default input
-value, Squash Orchestrator creates an environment variable for the input with the name
+value, the orchestrator creates an environment variable for the input with the name
 <code>INPUT_&lt;VARIABLE_NAME&gt;</code>.  The environment variable created converts input names
 to uppercase letters and replaces spaces with <code>_</code> characters.</p>
 <p>For example, if a workflow defined the numOctocats and octocatEyeColor inputs,
@@ -1311,7 +1325,7 @@ two inputs (x + y = z), the plugin could output the sum (z) for other plugins to
 use as an input.</p>
 <p>If you don&rsquo;t declare an output in your plugin metadata file, you can still set
 outputs and use them in a workflow.  For more information on setting outputs in
-a plugin, see &ldquo;<a href="../../reference/workflow-commands/">Workflow commands for Squash Orchestrator</a>.&rdquo;</p>
+a plugin, see &ldquo;<a href="../../reference/workflow-commands/">Workflow commands for OpenTestFactory orchestrator</a>.&rdquo;</p>
 <h3 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">outputs</span><span class="p">:</span>
   <span class="nt">sum</span><span class="p">:</span> <span class="c1"># id of the output</span>
@@ -1326,7 +1340,7 @@ a letter or <code>_</code> and contain only alphanumeric characters, <code>-</co
 <p><strong>Required</strong> A <code>string</code> description of the output parameter.</p>
 <h2 id="outputs-for-composite-run-steps-plugins"><code>outputs</code> for composite run steps plugins<a class="headerlink" href="#outputs-for-composite-run-steps-plugins" title="Permanent link">&para;</a></h2>
 <p><strong>Optional</strong> <code>outputs</code> use the same parameters as <code>outputs.&lt;output_id&gt;</code> and
-<code>outputs.&lt;output_id&gt;.description</code> (see &ldquo;outputs for Squash Orchestrator plugins&rdquo;), but
+<code>outputs.&lt;output_id&gt;.description</code> (see &ldquo;outputs for OpenTestFactory orchestrator plugins&rdquo;), but
 also includes the <code>value</code> token.</p>
 <h3 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">outputs</span><span class="p">:</span>
@@ -1345,11 +1359,11 @@ also includes the <code>value</code> token.</p>
 this to a <code>string</code> or an expression with context.  For example, you can use the
 <code>steps</code> context to set the <code>value</code> of an output to the output value of a step.</p>
 <p>For more information on how to use context and expression syntax, see &ldquo;<a href="../../reference/context-and-expression-syntax/">Context
-and expression syntax for GitHub Actions</a>.&rdquo;</p>
+and expression syntax for OpenTestFactory workflows</a>.&rdquo;</p>
 <h2 id="branding"><code>branding</code><a class="headerlink" href="#branding" title="Permanent link">&para;</a></h2>
 <p>You can use a color and <a href="https://feathericons.com/">Feather</a> icon to create a
 badge to personalize and distinguish your plugin.  Badges are shown next to
-your plugin name in Squash Orchestrator Marketplace.</p>
+your plugin name in the OpenTestFactory Marketplace.</p>
 <h3 id="example_4">Example<a class="headerlink" href="#example_4" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">branding</span><span class="p">:</span>
   <span class="nt">icon</span><span class="p">:</span> <span class="s">&#39;award&#39;</span>
@@ -1800,7 +1814,7 @@ your plugin name in Squash Orchestrator Marketplace.</p>
               <span class="md-footer__direction">
                 Next
               </span>
-              action
+              actions
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1813,6 +1827,10 @@ your plugin name in Squash Orchestrator Marketplace.</p>
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; Henix.  All rights reserved.
+          </div>
         
         Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">

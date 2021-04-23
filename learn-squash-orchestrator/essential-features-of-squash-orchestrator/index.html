@@ -8,13 +8,15 @@
       
       
       
+        <meta name="author" content="mlafaix@henix.com">
+      
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
     
     
       
-        <title>Essential features of Squash Orchestrator - Squash Orchestrator</title>
+        <title>Essential features of Squash Orchestrator - OpenTestFactory Orchestrator</title>
       
     
     
@@ -58,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#essential-features-of-squash-orchestrator" class="md-skip">
+        <a href="#essential-features-of-opentestfactory-orchestrator" class="md-skip">
           Skip to content
         </a>
       
@@ -71,7 +73,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Squash Orchestrator" class="md-header__button md-logo" aria-label="Squash Orchestrator">
+    <a href="../.." title="OpenTestFactory Orchestrator" class="md-header__button md-logo" aria-label="OpenTestFactory Orchestrator">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -84,7 +86,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Squash Orchestrator
+            OpenTestFactory Orchestrator
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -154,13 +156,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Squash Orchestrator" class="md-nav__button md-logo" aria-label="Squash Orchestrator">
+    <a href="../.." title="OpenTestFactory Orchestrator" class="md-nav__button md-logo" aria-label="OpenTestFactory Orchestrator">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    Squash Orchestrator
+    OpenTestFactory Orchestrator
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -233,6 +235,18 @@
           Guides
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/agent/" class="md-nav__link">
+        Agents
+      </a>
+    </li>
+  
+
           
             
   
@@ -516,7 +530,7 @@
   
     <li class="md-nav__item">
       <a href="../../providers/actionprovider/" class="md-nav__link">
-        action
+        actions
       </a>
     </li>
   
@@ -838,17 +852,17 @@
               
                 
                 
-                <h1 id="essential-features-of-squash-orchestrator">Essential features of Squash Orchestrator<a class="headerlink" href="#essential-features-of-squash-orchestrator" title="Permanent link">&para;</a></h1>
-<p>Squash Orchestrator is designed to help you build robust and dynamic automations.
+                <h1 id="essential-features-of-opentestfactory-orchestrator">Essential features of OpenTestFactory orchestrator<a class="headerlink" href="#essential-features-of-opentestfactory-orchestrator" title="Permanent link">&para;</a></h1>
+<p>The orchestrator is designed to help you build robust and dynamic automations.
 This guide will show you how to craft workflows that include environment variables,
 customized scripts, and more.</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Squash Orchestrator allow you to customize your workflows to meet the unique needs of
-your application and team. In this guide, we&rsquo;ll discuss some of the essential
-customization techniques such as using variables, running scripts, and sharing data
-and artifacts between jobs.</p>
+<p>The OpenTestFactory orchestrator allow you to customize your workflows to meet the
+unique needs of your application and team. In this guide, we&rsquo;ll discuss some of the
+essential customization techniques such as using variables, running scripts, and
+sharing data and artifacts between jobs.</p>
 <h2 id="using-variables-in-your-workflows">Using variables in your workflows<a class="headerlink" href="#using-variables-in-your-workflows" title="Permanent link">&para;</a></h2>
-<p>Squash Orchestrator include default environment variables for each workflow run. If
+<p>The orchestrator include default environment variables for each workflow run. If
 you need to use custom environment variables, you can set these in your YAML workflow
 file. This example demonstrates how to create custom variables named <code>POSTGRES_HOST</code>
 and <code>POSTGRES_PORT</code>. These variables are then available to the <code>node client.js</code> script.</p>
@@ -879,7 +893,7 @@ keyword to execute <code>npm install -g bats</code> on the execution environment
         <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">./scripts/build.sh</span>
         <span class="nt">shell</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
 </code></pre></div>
-<p>For more information, see &ldquo;<a href="../../reference/workflows/">Workflow syntax for Squash Orchestrator.</a>&ldquo;</p>
+<p>For more information, see &ldquo;<a href="../../reference/workflows/">Workflow syntax for OpenTestFactory orchestrator.</a>&ldquo;</p>
                 
               
               
@@ -931,6 +945,10 @@ keyword to execute <code>npm install -g bats</code> on the execution environment
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; Henix.  All rights reserved.
+          </div>
         
         Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">

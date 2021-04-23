@@ -8,13 +8,15 @@
       
       
       
+        <meta name="author" content="mlafaix@henix.com">
+      
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.4">
     
     
       
-        <title>Context and expression syntax - Squash Orchestrator</title>
+        <title>Context and expression syntax - OpenTestFactory Orchestrator</title>
       
     
     
@@ -58,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#context-and-expression-syntax-for-squash-orchestrator-workflows" class="md-skip">
+        <a href="#context-and-expression-syntax-for-opentestfactory-workflows" class="md-skip">
           Skip to content
         </a>
       
@@ -71,7 +73,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Squash Orchestrator" class="md-header__button md-logo" aria-label="Squash Orchestrator">
+    <a href="../.." title="OpenTestFactory Orchestrator" class="md-header__button md-logo" aria-label="OpenTestFactory Orchestrator">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -84,7 +86,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            Squash Orchestrator
+            OpenTestFactory Orchestrator
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -154,13 +156,13 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Squash Orchestrator" class="md-nav__button md-logo" aria-label="Squash Orchestrator">
+    <a href="../.." title="OpenTestFactory Orchestrator" class="md-nav__button md-logo" aria-label="OpenTestFactory Orchestrator">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
 
     </a>
-    Squash Orchestrator
+    OpenTestFactory Orchestrator
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -233,6 +235,18 @@
           Guides
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/agent/" class="md-nav__link">
+        Agents
+      </a>
+    </li>
+  
+
           
             
   
@@ -462,7 +476,7 @@
   
     <li class="md-nav__item">
       <a href="../../providers/actionprovider/" class="md-nav__link">
-        action
+        actions
       </a>
     </li>
   
@@ -1097,13 +1111,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#object-filters" class="md-nav__link">
-    Object filters
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1542,13 +1549,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#object-filters" class="md-nav__link">
-    Object filters
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1562,7 +1562,7 @@
               
                 
                 
-                <h1 id="context-and-expression-syntax-for-squash-orchestrator-workflows">Context and expression syntax for Squash Orchestrator Workflows<a class="headerlink" href="#context-and-expression-syntax-for-squash-orchestrator-workflows" title="Permanent link">&para;</a></h1>
+                <h1 id="context-and-expression-syntax-for-opentestfactory-workflows">Context and expression syntax for OpenTestFactory workflows<a class="headerlink" href="#context-and-expression-syntax-for-opentestfactory-workflows" title="Permanent link">&para;</a></h1>
 <p>You can access context information and evaluate expressions in workflows.</p>
 <h2 id="about-contexts-and-expressions">About contexts and expressions<a class="headerlink" href="#about-contexts-and-expressions" title="Permanent link">&para;</a></h2>
 <p>You can use expressions to programmatically set variables in workflow files and
@@ -1572,14 +1572,14 @@ references, and functions using operators.</p>
 <p>Expressions are commonly used with the conditional <code>if</code> keyword in a workflow
 file to determine whether a step should run.  When an <code>if</code> conditional is
 <code>true</code>, the step will run.</p>
-<p>You need to use specific syntax to tell Squash Orchestrator to evaluate an expression
+<p>You need to use specific syntax to tell the OpenTestFactory orchestrator to evaluate an expression
 rather than treat it as a string.</p>
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">${{ &lt;expression&gt; }}</span>
 </code></pre></div>
 <p>When you use expressions in an <code>if</code> conditional, you may omit the expression
-syntax (<code>${{ }}</code>) because Squash Orchestrator automatically evaluates the <code>if</code>
+syntax (<code>${{ }}</code>) because the orchestrator automatically evaluates the <code>if</code>
 conditional as an expression.  For more information about <code>if</code> conditionals,
-see &ldquo;<a href="#workflows.md">Workflow syntax for Squash Orchestrator</a>.&rdquo;</p>
+see &ldquo;<a href="#workflows.md">Workflow syntax for OpenTestFactory orchestrator</a>.&rdquo;</p>
 <h3 id="example-expression-in-an-if-conditional">Example expression in an <code>if</code> conditional<a class="headerlink" href="#example-expression-in-an-if-conditional" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">steps</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">robotframework/robot@v1</span>
@@ -1657,7 +1657,7 @@ event that triggered the run.  You can read most of the <code>squashtf</code> co
 in environment variables.  For more information about environment variables,
 see &ldquo;<a href="using-environment-variables">Using environment variables</a>.&rdquo;</p>
 <p><strong>Warning</strong>: When using the whole <code>squashtf</code> context, be mindful that it
-includes sensitive information such as <code>squashtf.token</code>.  Squash Orchestrator masks
+includes sensitive information such as <code>squashtf.token</code>.  The orchestrator masks
 secrets when they are printed to the console, but you should be cautious when
 exporting or printing the <code>context</code>.</p>
 <table>
@@ -1692,26 +1692,26 @@ exporting or printing the <code>context</code>.</p>
 <tr>
 <td><code>squashtf.token</code></td>
 <td><code>string</code></td>
-<td>A token to authenticate on behalf of the Squash Orchestrator plugin.</td>
+<td>A token to authenticate on behalf of the orchestrator plugin.</td>
 </tr>
 <tr>
 <td><code>squashtf.step</code></td>
 <td><code>string</code></td>
-<td>The name of the step currently running.  Squash Orchestrator removes special characters or uses the name <code>run</code> when the current step runs a script.  If you use the same action more than once in the same job, the name will include a suffix with the sequence number.  For example, the first script you run will have the name <code>run1</code>, and the second script will be named <code>run2</code>.  Similarly, the second invocation of <code>actions/checkout</code> will be <code>actionscheckout2</code>.</td>
+<td>The name of the step currently running.  The orchestrator removes special characters or uses the name <code>run</code> when the current step runs a script.  If you use the same action more than once in the same job, the name will include a suffix with the sequence number.  For example, the first script you run will have the name <code>run1</code>, and the second script will be named <code>run2</code>.  Similarly, the second invocation of <code>actions/checkout</code> will be <code>actionscheckout2</code>.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="variables-context"><code>variables</code> context<a class="headerlink" href="#variables-context" title="Permanent link">&para;</a></h3>
 <p>The <code>variables</code> context contains environment variables that have been set in a
 workflow, job, or step.  For more information about setting environment
-variables in your workflow, see &ldquo;<a href="../workflows/">Workflow syntax for Squash Orchestrator</a>.&rdquo;</p>
+variables in your workflow, see &ldquo;<a href="../workflows/">Workflow syntax for OpenTestFactory orchestrator</a>.&rdquo;</p>
 <p>The <code>variables</code> context syntax allows you to use the value of an environment
 variable in your workflow file.  If you want to use the value of an environment
 variable inside an execution environment, use the execution environment
 operating system&rsquo;s normal method for reading environment variables.</p>
 <p>You can only use the <code>variables</code> context in the value of the <code>with</code> and <code>name</code>
 keys, or in a step&rsquo;s <code>if</code> conditional.  For more information on the step
-syntax, see &ldquo;<a href="../workflows/">Workflow syntax for Squash Orchestrator</a>.&rdquo;</p>
+syntax, see &ldquo;<a href="../workflows/">Workflow syntax for OpenTestFactory orchestrator</a>.&rdquo;</p>
 <table>
 <thead>
 <tr>
@@ -1734,9 +1734,11 @@ syntax, see &ldquo;<a href="../workflows/">Workflow syntax for Squash Orchestrat
 </tbody>
 </table>
 <h3 id="resources-context"><code>resources</code> context<a class="headerlink" href="#resources-context" title="Permanent link">&para;</a></h3>
-<p>The <code>resources</code> context contains resources that have been set in a workflow.  For more information about setting resources in your workflow, see &ldquo;<a href="../workflows/">Workflow syntax for Squash Orchestrator</a>.&rdquo;</p>
+<p>The <code>resources</code> context contains resources that have been set in a workflow.  For more information about setting resources in
+your workflow, see &ldquo;<a href="../workflows/">Workflow syntax for OpenTestFactory orchestrator</a>.&rdquo;</p>
 <p>The <code>resources</code> context syntax allow you to use the resources in your workflow file.</p>
-<p>You can only use the <code>resources</code> context in the value of the <code>with</code> and <code>name</code> keys.  For more information on the step syntax, see &ldquo;<a href="../workflows/">Workflow syntax for Squash Orchestrator</a>.&rdquo;</p>
+<p>You can only use the <code>resources</code> context in the value of the <code>with</code> and <code>name</code> keys.  For more information on the step syntax,
+see &ldquo;<a href="../workflows/">Workflow syntax for OpenTestFactory orchestrator</a>.&rdquo;</p>
 <table>
 <thead>
 <tr>
@@ -1845,7 +1847,8 @@ is executing the current job.</p>
 </tbody>
 </table>
 <h3 id="needs-context"><code>needs</code> context<a class="headerlink" href="#needs-context" title="Permanent link">&para;</a></h3>
-<p>The <code>needs</code> context contains outputs from all jobs that are defined as a dependency of the current job.  For more information on defining job dependencies, see &ldquo;<a href="../workflows/">Workflow syntax for Squash Orchestrator</a>.&rdquo;</p>
+<p>The <code>needs</code> context contains outputs from all jobs that are defined as a dependency of the current job.  For more information on defining job
+dependencies, see &ldquo;<a href="../workflows/">Workflow syntax for OpenTestFactory orchestrator</a>.&rdquo;</p>
 <table>
 <thead>
 <tr>
@@ -1977,10 +1980,10 @@ True.</p>
 </tr>
 </tbody>
 </table>
-<p>Squash Orchestrator performs loose equality comparisons.</p>
+<p>The orchestrator performs loose equality comparisons.</p>
 <ul>
-<li>If the types do not match, Squash Orchestrator coerces the type to a number.
-  Squash Orchestrator casts data types to a number using these conversions:</li>
+<li>If the types do not match, the orchestrator coerces the type to a number.
+  The orchestrator casts data types to a number using these conversions:</li>
 </ul>
 <table>
 <thead>
@@ -2018,15 +2021,15 @@ True.</p>
   more information, see the &ldquo;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN">NaN Mozilla docs</a>.&rdquo;</p>
 </li>
 <li>
-<p>Squash Orchestrator ignores case when comparing strings.</p>
+<p>The orchestrator ignores case when comparing strings.</p>
 </li>
 <li>
 <p>Objects and arrays are only considered equal when they are the same instance.</p>
 </li>
 </ul>
 <h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
-<p>Squash Orchestrator offers a set of built-in functions that you can use in expressions.
-Some functions cast values to a string to perform comparisons.  Squash Orchestrator casts
+<p>The OpenTestFactory orchestrator offers a set of built-in functions that you can use in expressions.
+Some functions cast values to a string to perform comparisons.  The orchestrator casts
 data types to a string using these conversions:</p>
 <table>
 <thead>
@@ -2151,7 +2154,7 @@ using an output and <code>fromJSON</code>.</p>
 <p>You can use the following status check functions as expressions in <code>if</code>
 conditionals.  If your <code>if</code> expression does not contain any of the status
 functions it will automatically result with <code>success()</code>.  For more information
-about if conditionals, see &ldquo;<a href="../workflows/">Workflow syntax for Squash Orchestrator</a>.&rdquo;</p>
+about if conditionals, see &ldquo;<a href="../workflows/">Workflow syntax for OpenTestFactory orchestrator</a>.&rdquo;</p>
 <h3 id="success">success<a class="headerlink" href="#success" title="Permanent link">&para;</a></h3>
 <p>Returns <code>true</code> when none of the previous steps have failed or been canceled.</p>
 <h4 id="example_7">Example<a class="headerlink" href="#example_7" title="Permanent link">&para;</a></h4>
@@ -2180,17 +2183,6 @@ sources failed.</p>
   <span class="l l-Scalar l-Scalar-Plain">- name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">The job has failed</span>
     <span class="l l-Scalar l-Scalar-Plain">if</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ failure() }}</span>
 </code></pre></div>
-<h2 id="object-filters">Object filters<a class="headerlink" href="#object-filters" title="Permanent link">&para;</a></h2>
-<p>You can use the <code>*</code> syntax to apply a filter and select matching items in a
-collection.</p>
-<p>For example, consider an array of objects named <code>fruits</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="p">[</span>
-  <span class="p">{</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="nt">&quot;quantity&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="p">},</span>
-  <span class="p">{</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="nt">&quot;quantity&quot;</span><span class="p">:</span> <span class="mi">2</span> <span class="p">},</span>
-  <span class="p">{</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pear&quot;</span><span class="p">,</span> <span class="nt">&quot;quantity&quot;</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
-<span class="p">]</span>
-</code></pre></div>
-<p>The filter <code>fruits.*.name</code> returns the array <code>[ "apple", "orange", "pear" ]</code>.</p>
                 
               
               
@@ -2242,6 +2234,10 @@ collection.</p>
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; Henix.  All rights reserved.
+          </div>
         
         Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
