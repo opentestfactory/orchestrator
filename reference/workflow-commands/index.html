@@ -767,13 +767,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-workflow-commands-to-access-toolkit-functions" class="md-nav__link">
-    Using workflow commands to access toolkit functions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#attach-an-artifact" class="md-nav__link">
     Attach an artifact
   </a>
@@ -924,13 +917,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sending-values-to-the-pre-and-post-actions" class="md-nav__link">
-    Sending values to the pre and post actions
-  </a>
   
 </li>
       
@@ -992,13 +978,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-workflow-commands-to-access-toolkit-functions" class="md-nav__link">
-    Using workflow commands to access toolkit functions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#attach-an-artifact" class="md-nav__link">
     Attach an artifact
   </a>
@@ -1152,13 +1131,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#sending-values-to-the-pre-and-post-actions" class="md-nav__link">
-    Sending values to the pre and post actions
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1187,13 +1159,6 @@ others are invoked by writing to a file.  For more information, see
 <p><strong>Note</strong>: Workflow command and parameter names are not case-sensitive.</p>
 <p><strong>Warning</strong>: If you are using Command Prompt, omit double quote characters
 (<code>"</code>) when using workflow commands.</p>
-<h2 id="using-workflow-commands-to-access-toolkit-functions">Using workflow commands to access toolkit functions<a class="headerlink" href="#using-workflow-commands-to-access-toolkit-functions" title="Permanent link">&para;</a></h2>
-<p>The <code>squashtf/toolkit</code> module includes several functions that can be
-executed as workflow commands.  Use the <code>::</code> syntax to run the workflow
-commands within your YAML file; these commands are then sent to the runner over
-<code>stdout</code>.  For example, instead of using code to set an output, as below:</p>
-<div class="highlight"><pre><span></span><code>core.setOutput(&#39;SELECTED_COLOR&#39;, &#39;green&#39;);
-</code></pre></div>
 <p>You can use the <code>set-output</code> command in your workflow to set the same value:</p>
 <div class="highlight"><pre><span></span><code>      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Set selected color</span>
         <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &#39;::set-output name=SELECTED_COLOR::green&#39;</span>
@@ -1201,78 +1166,6 @@ commands within your YAML file; these commands are then sent to the runner over
       <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Get color</span>
         <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &#39;The selected color is&#39; ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}</span>
 </code></pre></div>
-<p>The following table shows which toolkit functions are available within a
-workflow:</p>
-<table>
-<thead>
-<tr>
-<th>Toolkit function</th>
-<th>Equivalent workflow command</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>core.addPath</td>
-<td>Accessible using environment file <code>SQUASHTF_PATH</code></td>
-</tr>
-<tr>
-<td>core.debug</td>
-<td><code>debug</code></td>
-</tr>
-<tr>
-<td>core.error</td>
-<td><code>error</code></td>
-</tr>
-<tr>
-<td>core.endGroup</td>
-<td><code>endgroup</code></td>
-</tr>
-<tr>
-<td>core.exportVariable</td>
-<td>Accessible using environment file <code>SQUASHTF_VARIABLES</code></td>
-</tr>
-<tr>
-<td>core.getInput</td>
-<td>Accessible using environment variable <code>INPUT_{NAME}</code></td>
-</tr>
-<tr>
-<td>core.getState</td>
-<td>Accessible using environment variable <code>STATE_{NAME}</code></td>
-</tr>
-<tr>
-<td>core.isDebug</td>
-<td>Accessible using environment variable <code>RUNNER_DEBUG</code></td>
-</tr>
-<tr>
-<td>core.attach</td>
-<td><code>attach</code></td>
-</tr>
-<tr>
-<td>core.saveState</td>
-<td><code>save-state</code></td>
-</tr>
-<tr>
-<td>core.setFailed</td>
-<td>Used as a shortcut for <code>::error</code> and <code>exit 1</code></td>
-</tr>
-<tr>
-<td>core.setOutput</td>
-<td><code>set-output</code></td>
-</tr>
-<tr>
-<td>core.setSecret</td>
-<td><code>add-mask</code></td>
-</tr>
-<tr>
-<td>core.startGroup</td>
-<td><code>group</code></td>
-</tr>
-<tr>
-<td>core.warning</td>
-<td><code>warning file</code></td>
-</tr>
-</tbody>
-</table>
 <h2 id="attach-an-artifact">Attach an artifact<a class="headerlink" href="#attach-an-artifact" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>::attach::{path}
 </code></pre></div>
@@ -1347,78 +1240,6 @@ commands.</p>
 </code></pre></div>
 <h3 id="example-starting-workflow-commands">Example starting workflow commands<a class="headerlink" href="#example-starting-workflow-commands" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;::pause-logging::&quot;</span>
-</code></pre></div>
-<h2 id="sending-values-to-the-pre-and-post-actions">Sending values to the pre and post actions<a class="headerlink" href="#sending-values-to-the-pre-and-post-actions" title="Permanent link">&para;</a></h2>
-<p>You can use the <code>save-state</code> command to create environment variables for
-sharing with your workflow&rsquo;s <code>pre:</code> or <code>post:</code> actions.  For example, you can
-create a file with the <code>pre:</code> action, pass the file location to the <code>main:</code>
-action, and then use the <code>post:</code> action to delete the file.  Alternatively, you
-could create a file with the <code>main:</code> action, pass the file location to the
-<code>post:</code> action, and also use the <code>post:</code> action to delete the file.</p>
-<p>If you have multiple <code>pre:</code> or <code>post:</code> actions, you can only access the saved
-value in the action where <code>save-state</code> was used.  For more information on the
-<code>post:</code> action, see &ldquo;Metadata syntax for Squash Orchestrator Plugins.&rdquo;</p>
-<p>The <code>save-state</code> command can only be run within an action, and is not available
-to YAML files.  The saved value is stored as an environment value with the
-<code>STATE_</code> prefix.</p>
-<p>This example uses JavaScript to run the save-state command.  The resulting
-environment variable is named <code>STATE_processID</code> with the value of 12345:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;::save-state name=processID::12345&#39;</span><span class="p">)</span>
-</code></pre></div>
-<p>The <code>STATE_processID</code> variable is then exclusively available to the cleanup
-script running under the main action.  This example runs in main and uses
-JavaScript to display the value assigned to the <code>STATE_processID</code> environment
-variable:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;The running PID from the main action is: &quot;</span> <span class="o">+</span>  <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">STATE_processID</span><span class="p">);</span>
-</code></pre></div>
-<h1 id="environments-files">Environments Files<a class="headerlink" href="#environments-files" title="Permanent link">&para;</a></h1>
-<p>During the execution of a workflow, the runner generates temporary files that
-can be used to perform certain actions.  The path to these files are exposed
-via environment variables.  You will need t use UTF-8 encoding when writing to
-these files to ensure proper processing of the commands.  Multiple commands
-can be written to the same file, separated by newlines.</p>
-<p><strong>Warning</strong>: Powershell does not use UTF-8 by default.  Make sure you write
-files using the correct encoding.  For example, you need to set UTF-8 encoding
-when you set the path:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">steps</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo &quot;mypath&quot; | Out-File -FilePath $env:SQUASHTF_PATH -Encoding utf8</span>
-</code></pre></div>
-<h2 id="setting-an-environment-variable">Setting an environment variable<a class="headerlink" href="#setting-an-environment-variable" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;{name}={value}&quot;</span> &gt;&gt; <span class="nv">$SQUASHTF_VARIABLES</span>
-</code></pre></div>
-<p>Creates or updates an environment variable for any steps running next in a job.
-The action that creates or updates the environment variable does not have
-access to the new value, but all subsequent steps in a job will have access.
-Environment variables are case-sensitive and you can include punctuation.</p>
-<h3 id="example_5">Example<a class="headerlink" href="#example_5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;action_state=yellow&quot;</span> &gt;&gt; <span class="nv">$SQUASHTF_VARIABLES</span>
-</code></pre></div>
-<p>Running <code>$action_state</code> in a future step will now return <code>yellow</code>.</p>
-<h3 id="multiline-strings">Multiline strings<a class="headerlink" href="#multiline-strings" title="Permanent link">&para;</a></h3>
-<p>For multiline strings, you may use a delimiter with the following syntax:</p>
-<div class="highlight"><pre><span></span><code><span class="o">{</span>name<span class="o">}</span>&lt;&lt;<span class="o">{</span>delimiter<span class="o">}</span>
-<span class="o">{</span>value<span class="o">}</span>
-<span class="o">{</span>delimiter<span class="o">}</span>
-</code></pre></div>
-<h3 id="example_6">Example<a class="headerlink" href="#example_6" title="Permanent link">&para;</a></h3>
-<p>In this example, we use <code>EOF</code> as a delimiter and set the <code>JSON_RESPONSE</code>
-environment variable to the value of the curl response.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">steps</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Set the value</span>
-    <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">step_one</span>
-    <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-        <span class="no">echo &#39;JSON_RESPONSE&lt;&lt;EOF&#39; &gt;&gt; $SQUASHTF_VARIABLES</span>
-        <span class="no">curl https://httpbin.og/json &gt;&gt; $SQUASHTF_VARIABLES</span>
-        <span class="no">echo &#39;EOF&#39; &gt;&gt; $SQUASHTF_VARIABLES</span>
-</code></pre></div>
-<h3 id="adding-a-system-path">Adding a system path<a class="headerlink" href="#adding-a-system-path" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;{path}&quot;</span> &gt;&gt; <span class="nv">$SQUASHTF_PATH</span>
-</code></pre></div>
-<p>Prepends a directory to the system <code>PATH</code> variable for all subsequent steps
-in the current job.  The currently running step cannot access the path
-variable.</p>
-<h3 id="example_7">Example<a class="headerlink" href="#example_7" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;/path/to/dir&quot;</span> &gt;&gt; <span class="nv">$SQUASHTF_PATH</span>
 </code></pre></div>
                 
               
