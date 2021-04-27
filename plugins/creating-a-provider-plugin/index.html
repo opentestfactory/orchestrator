@@ -304,13 +304,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       <label class="md-nav__link" for="__nav_5">
-        Learn Squash Orchestrator
+        Learn OpenTestFactory Orchestrator
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Learn Squash Orchestrator" data-md-level="1">
+      <nav class="md-nav" aria-label="Learn OpenTestFactory Orchestrator" data-md-level="1">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
-          Learn Squash Orchestrator
+          Learn OpenTestFactory Orchestrator
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -332,7 +332,7 @@
   
     <li class="md-nav__item">
       <a href="../../learn-squash-orchestrator/introduction-to-squash-orchestrator/" class="md-nav__link">
-        Introduction to Squash Orchestrator
+        Introduction to OpenTestFactory Orchestrator
       </a>
     </li>
   
@@ -356,7 +356,7 @@
   
     <li class="md-nav__item">
       <a href="../../learn-squash-orchestrator/essential-features-of-squash-orchestrator/" class="md-nav__link">
-        Essential features of Squash Orchestrator
+        Essential features of OpenTestFactory Orchestrator
       </a>
     </li>
   
@@ -1072,15 +1072,15 @@ a packaged provider plugin.  To focus this guide on the components needed to
 package the plugin, the functionality of the plugin&rsquo;s code is minimal.  The
 plugin prints &ldquo;Hello World&rdquo; in the logs or &ldquo;Hello {who-to-greet}&rdquo; if you
 provide a custom name.</p>
-<p>This guide uses the Squash Orchestrator Toolkit module to speed up development.  For more
-information, see the <code>squashtf/toolkit</code> repository.</p>
+<p>This guide uses the OpenTestFactory Orchestrator Toolkit module to speed up development.  For more
+information, see the <code>opentf/toolkit</code> repository.</p>
 <p>Once you complete this project, you should understand how to build your own
 provider plugin and test it in a workflow.</p>
-<p>To ensure your plugins are compatible with all Squash Orchestrator deployments (linux,
+<p>To ensure your plugins are compatible with all OpenTestFactory Orchestrator deployments (linux,
 windows, &hellip;), the packaged code you write should be pure and not rely on
 other non-portable binaries.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<p>You may find it helpful to have a basic understanding of Squash Orchestrator environment
+<p>You may find it helpful to have a basic understanding of the OpenTestFactory Orchestrator environment
 variables:</p>
 <ul>
 <li><a href="../../reference/using-environment-variables/">Using environment variables</a></li>
@@ -1097,14 +1097,14 @@ variables:</p>
 <h2 id="create-a-web-service">Create a web service<a class="headerlink" href="#create-a-web-service" title="Permanent link">&para;</a></h2>
 <p>Provider plugins are simple web services.  They subscribe to specific events
 on startup, and publish events in response.</p>
-<p>The <code>squashtf/toolkit</code> module streamlines the process if you want to write your
+<p>The <code>opentf/toolkit</code> module streamlines the process if you want to write your
 plugin in Python.  For more information on doing things in a less assisted way,
 see &ldquo;Writing plugins the hard way.&rdquo;</p>
 <p>In your new <code>hello-world-provider-plugin</code> directory, create a new <code>main.py</code>
 file.</p>
 <h3 id="mainpy"><code>main.py</code><a class="headerlink" href="#mainpy" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># main.py</span>
-<span class="kn">from</span> <span class="nn">squashtf.toolkit</span> <span class="kn">import</span> <span class="n">make_plugin</span><span class="p">,</span> <span class="n">run_plugin</span>
+<span class="kn">from</span> <span class="nn">opentf.toolkit</span> <span class="kn">import</span> <span class="n">make_plugin</span><span class="p">,</span> <span class="n">run_plugin</span>
 
 <span class="kn">from</span> <span class="nn">.implementation</span> <span class="kn">import</span> <span class="n">handler</span>
 
@@ -1119,7 +1119,7 @@ file.</p>
 </code></pre></div>
 <h2 id="create-a-plugin-metadata-file">Create a plugin metadata file<a class="headerlink" href="#create-a-plugin-metadata-file" title="Permanent link">&para;</a></h2>
 <p>Create a new <code>plugin.yaml</code> file in the <code>hello-world-provider-plugin</code> directory
-you created above.  For more information, see &ldquo;<a href="../metadata-syntax-for-squashtf-plugins/">Metadata syntax for Squash Orchestrator
+you created above.  For more information, see &ldquo;<a href="../metadata-syntax-for-squashtf-plugins/">Metadata syntax for OpenTestFactory Orchestrator
 plugins</a>.&rdquo;</p>
 <h3 id="pluginyaml"><code>plugin.yaml</code><a class="headerlink" href="#pluginyaml" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># plugin.yaml</span>
@@ -1146,7 +1146,7 @@ plugins</a>.&rdquo;</p>
 <h2 id="writing-the-plugin-code">Writing the plugin code<a class="headerlink" href="#writing-the-plugin-code" title="Permanent link">&para;</a></h2>
 <p>Provider plugins must return a possibly empty collection of steps.  Each step
 has a name and a definition.  For more information about the <code>steps</code> syntax,
-see &ldquo;<a href="../../reference/workflows/">Workflow syntax for Squash Orchestrator</a>.&rdquo;</p>
+see &ldquo;<a href="../../reference/workflows/">Workflow syntax for OpenTestFactory Orchestrator</a>.&rdquo;</p>
 <p>Steps names and ids are local to the returned collection of steps.  They
 do not conflict with names and ids used in the referring workflow.</p>
 <p>The following Python script example uses the <code>who-to-greet</code> input variable

@@ -304,13 +304,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       <label class="md-nav__link" for="__nav_5">
-        Learn Squash Orchestrator
+        Learn OpenTestFactory Orchestrator
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Learn Squash Orchestrator" data-md-level="1">
+      <nav class="md-nav" aria-label="Learn OpenTestFactory Orchestrator" data-md-level="1">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
-          Learn Squash Orchestrator
+          Learn OpenTestFactory Orchestrator
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -332,7 +332,7 @@
   
     <li class="md-nav__item">
       <a href="../../learn-squash-orchestrator/introduction-to-squash-orchestrator/" class="md-nav__link">
-        Introduction to Squash Orchestrator
+        Introduction to OpenTestFactory Orchestrator
       </a>
     </li>
   
@@ -356,7 +356,7 @@
   
     <li class="md-nav__item">
       <a href="../../learn-squash-orchestrator/essential-features-of-squash-orchestrator/" class="md-nav__link">
-        Essential features of Squash Orchestrator
+        Essential features of OpenTestFactory Orchestrator
       </a>
     </li>
   
@@ -865,10 +865,10 @@
                 
                 
                 <h1 id="using-environment-variables">Using environment variables<a class="headerlink" href="#using-environment-variables" title="Permanent link">&para;</a></h1>
-<p>Squash Orchestrator sets default environment variables for each Squash Orchestrator workflow run. You can also set custom environment variables in your workflow file.</p>
+<p>The OpenTestFactory orchestrator sets default environment variables for each orchestrator workflow run. You can also set custom environment variables in your workflow file.</p>
 <h2 id="about-environment-variables">About environment variables<a class="headerlink" href="#about-environment-variables" title="Permanent link">&para;</a></h2>
-<p>Squash Orchestrator sets default environment variables that are available to every step in a workflow run. Environment variables are case-sensitive. Commands run in actions or steps can create, read, and modify environment variables.</p>
-<p>To set custom environment variables, you need to specify the variables in the workflow file. You can define environment variables for a step, job, or entire workflow using the <code>jobs.&lt;job_id&gt;.steps.variables</code>, <code>jobs.&lt;job_id&gt;.variables</code>, and <code>variables</code> keywords. For more information, see &ldquo;<a href="../workflows/">Workflow syntax for Squash Orchestrator</a>.&rdquo;</p>
+<p>The OpenTestFactory orchestrator sets default environment variables that are available to every step in a workflow run. Environment variables are case-sensitive. Commands run in actions or steps can create, read, and modify environment variables.</p>
+<p>To set custom environment variables, you need to specify the variables in the workflow file. You can define environment variables for a step, job, or entire workflow using the <code>jobs.&lt;job_id&gt;.steps.variables</code>, <code>jobs.&lt;job_id&gt;.variables</code>, and <code>variables</code> keywords. For more information, see &ldquo;<a href="../workflows/">Workflow syntax for OpenTestFactory Orchestrator</a>.&rdquo;</p>
 <div class="highlight"><pre><span></span><code><span class="nt">steps</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Hello world</span>
     <span class="nt">run</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">echo Hello world $FIRST_NAME $middle_name $Last_Name!</span>
@@ -877,9 +877,9 @@
       <span class="nt">middle_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The</span>
       <span class="nt">Last_Name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Octocat</span>
 </code></pre></div>
-<p>You can also use the <code>set-env</code> workflow command to set an environment variable that the following steps in a workflow can use. The <code>set-env</code> command can be used directly by an action or as a shell command in a workflow file using the run keyword. For more information, see &ldquo;Workflow commands for Squash Orchestrator Workflows.&rdquo;</p>
+<p>You can also use the <code>set-env</code> workflow command to set an environment variable that the following steps in a workflow can use. The <code>set-env</code> command can be used directly by an action or as a shell command in a workflow file using the run keyword. For more information, see &ldquo;Workflow commands for OpenTestFactory Orchestrator Workflows.&rdquo;</p>
 <h2 id="default-environment-variables">Default environment variables<a class="headerlink" href="#default-environment-variables" title="Permanent link">&para;</a></h2>
-<p>We strongly recommend that actions use environment variables to access the filesystem rather than using hardcoded file paths. Squash Orchestrator sets environment variables for actions to use in all execution environments.</p>
+<p>We strongly recommend that actions use environment variables to access the filesystem rather than using hardcoded file paths. The OpenTestFactory orchestrator sets environment variables for actions to use in all execution environments.</p>
 <table>
 <thead>
 <tr>
@@ -902,16 +902,16 @@
 </tr>
 <tr>
 <td>SQUASHTF_WORKSPACE</td>
-<td>The Squash Orchestrator workspace directory path. The workspace directory contains a subdirectory with a copy of your repository if your workflow uses the actions/checkout action. If you don&rsquo;t use the actions/checkout action, the directory will be empty. For example, <code>/home/runner/work/my-repo-name/my-repo-name</code>.</td>
+<td>The OpenTestFactory orchestrator workspace directory path. The workspace directory contains a subdirectory with a copy of your repository if your workflow uses the actions/checkout action. If you don&rsquo;t use the actions/checkout action, the directory will be empty. For example, <code>/home/runner/work/my-repo-name/my-repo-name</code>.</td>
 </tr>
 <tr>
 <td>SQUASHTF_SERVER_URL</td>
-<td>Returns the URL of the Squash Orchestrator server. For example: <code>https://squashtf.example.com</code>.</td>
+<td>Returns the URL of the OpenTestFactory orchestrator server. For example: <code>https://opentf.example.com</code>.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="naming-conventions-for-environment-variables">Naming conventions for environment variables<a class="headerlink" href="#naming-conventions-for-environment-variables" title="Permanent link">&para;</a></h2>
-<p><strong>Note</strong>: Squash Orchestrator reserves the <code>SQUASHTF_</code> environment variable prefix for internal use by Squash Orchestrator. Setting an environment variable or secret with the <code>SQUASHTF_</code> prefix will result in an error.</p>
+<p><strong>Note</strong>: The OpenTestFactory Orchestrator reserves the <code>SQUASHTF_</code> environment variable prefix for internal use by the orchestrator. Setting an environment variable or secret with the <code>SQUASHTF_</code> prefix will result in an error.</p>
 <p>Any new environment variables you set that point to a location on the filesystem should have a <code>_PATH</code> suffix. The <code>HOME</code> and <code>SQUASHTF_WORKSPACE</code> default variables are exceptions to this convention because the words &ldquo;home&rdquo; and &ldquo;workspace&rdquo; already imply a location.</p>
                 
               
