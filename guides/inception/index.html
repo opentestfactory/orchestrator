@@ -874,12 +874,6 @@ that you can use for this purpose.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Test Inception</span>
 <span class="nt">resources</span><span class="p">:</span>
-  <span class="nt">testmanagers</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mysquashtm</span>
-    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">squashtm</span>
-    <span class="nt">endpoint</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://squashtm.example.com/squash</span>
-    <span class="nt">login</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ variables.SQUASH_USER }}</span>
-    <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ variables.SQUASH_PASSWORD }}</span>
   <span class="nt">files</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">report1</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">report2</span>
@@ -898,9 +892,11 @@ that you can use for this purpose.</p>
     <span class="nt">needs</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">prepare</span><span class="p p-Indicator">]</span>
     <span class="nt">generator</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tm.squashtest.org/tm.generator@v1</span>
     <span class="nt">with</span><span class="p">:</span>
-     <span class="nt">instance</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ resources.testmanagers.mysquashtm }}</span>
-     <span class="nt">test-plan-uuid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
-     <span class="nt">test-plan-type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+      <span class="nt">squashTMUrl</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://squashtm.example.com/squash</span>
+      <span class="nt">squashTMAutomatedServerLogin</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ variables.SQUASH_USER }}</span>
+      <span class="nt">squashTMAutomatedServerPassword</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${{ variables.SQUASH_PASSWORD }}</span>
+      <span class="nt">testPlanUuid</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
+      <span class="nt">testPlanType</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">...</span>
 </code></pre></div>
 <p>A few new things.  First, a new <code>files</code> section in the <code>resources</code> part, that
 lists the expected external inputs.  Second, a preparation job, that uses a new
