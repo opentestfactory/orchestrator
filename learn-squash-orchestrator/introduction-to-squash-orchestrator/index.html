@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction-to-squash-orchestrator" class="md-skip">
+        <a href="#introduction-to-opentestfactory-orchestrator" class="md-skip">
           Skip to content
         </a>
       
@@ -371,11 +371,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-components-of-squash-orchestrator" class="md-nav__link">
-    The components of Squash Orchestrator
+  <a href="#the-components-of-the-opentestfactory-orchestrator" class="md-nav__link">
+    The components of the OpenTestFactory Orchestrator
   </a>
   
-    <nav class="md-nav" aria-label="The components of Squash Orchestrator">
+    <nav class="md-nav" aria-label="The components of the OpenTestFactory Orchestrator">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -920,11 +920,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-components-of-squash-orchestrator" class="md-nav__link">
-    The components of Squash Orchestrator
+  <a href="#the-components-of-the-opentestfactory-orchestrator" class="md-nav__link">
+    The components of the OpenTestFactory Orchestrator
   </a>
   
-    <nav class="md-nav" aria-label="The components of Squash Orchestrator">
+    <nav class="md-nav" aria-label="The components of the OpenTestFactory Orchestrator">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1028,19 +1028,19 @@
               
                 
                 
-                <h1 id="introduction-to-squash-orchestrator">Introduction to Squash Orchestrator<a class="headerlink" href="#introduction-to-squash-orchestrator" title="Permanent link">&para;</a></h1>
-<p>Learn about the core concepts and various components of Squash Orchestrator,
+                <h1 id="introduction-to-opentestfactory-orchestrator">Introduction to OpenTestFactory Orchestrator<a class="headerlink" href="#introduction-to-opentestfactory-orchestrator" title="Permanent link">&para;</a></h1>
+<p>Learn about the core concepts and various components of the OpenTestFactory orchestrator,
 and see an example that shows you how to add testing automation to your
 repository.</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Squash Orchestrator helps you automate testing tasks within your software
+<p>The OpenTestFactory orchestrator helps you automate testing tasks within your software
 development life cycle.  Workflows are trigger-driven, meaning that you can
 run a series of commands after a specified trigger has occurred.</p>
 <p>For example, every time someone creates a pull request for a repository, you
 can automatically run a command that executes a software testing script.</p>
 <p><img alt="Orchestrator Workflow Overview" src="../../images/orchestrator_overview.png" /></p>
-<h2 id="the-components-of-squash-orchestrator">The components of Squash Orchestrator<a class="headerlink" href="#the-components-of-squash-orchestrator" title="Permanent link">&para;</a></h2>
-<p>Below is a list of the multiple Squash Orchestrator components that work together
+<h2 id="the-components-of-the-opentestfactory-orchestrator">The components of the OpenTestFactory Orchestrator<a class="headerlink" href="#the-components-of-the-opentestfactory-orchestrator" title="Permanent link">&para;</a></h2>
+<p>Below is a list of the multiple orchestrator components that work together
 to run jobs.  You can see how these components interact with each others.</p>
 <p><img alt="Components" src="../../images/components.png" /></p>
 <h3 id="workflows">Workflows<a class="headerlink" href="#workflows" title="Permanent link">&para;</a></h3>
@@ -1061,7 +1061,7 @@ dependent on the status of the configure job.  If the configure job fails, the t
 will not run.</p>
 <h3 id="generators">Generators<a class="headerlink" href="#generators" title="Permanent link">&para;</a></h3>
 <p><em>Generators</em> are standalone commands that produce jobs.  You can create your own
-generators, or use and customize generators created by the Squash Orchestrator
+generators, or use and customize generators created by the OpenTestFactory orchestrator
 community.  To use a generator in a workflow, you must include it as a job.</p>
 <h3 id="steps">Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
 <p>A step is an individual task that can run commands in a job.  A step can either be
@@ -1070,25 +1070,26 @@ environment, allowing the steps in that job to share data with each other.</p>
 <h3 id="providers">Providers<a class="headerlink" href="#providers" title="Permanent link">&para;</a></h3>
 <p><em>Providers</em> are standalone commands that are combined into <em>steps</em> to create a <em>job</em>.
 Providers are the smallest portable building block of a workflow.  You can create your
-own providers, or use and customize providers created by the Squash Orchestrator community.
+own providers, or use and customize providers created by the orchestrator community.
 To use a provider plugin in a workflow you must include it as a step.</p>
 <h3 id="execution-environments">Execution environments<a class="headerlink" href="#execution-environments" title="Permanent link">&para;</a></h3>
-<p>An execution environment is a server that Squash Orchestrator can talk to.  You can use
+<p>An execution environment is a server that the orchestrator can talk to.  You can use
 an execution environment that is specific to the system you want to test, or you can
 use a collection of generic execution environments that each host a specific testing
 framework you have code for.  An execution environment listens for available jobs, runs
-one job at a time, and reports the progress, logs, and results back to Squash Orchestrator.</p>
+one job at a time, and reports the progress, logs, and results back to the OpenTestFactory
+Orchestrator.</p>
 <h2 id="create-an-example-workflow">Create an example workflow<a class="headerlink" href="#create-an-example-workflow" title="Permanent link">&para;</a></h2>
-<p>Squash Orchestrator uses YAML syntax to define the jobs and steps.  These YAML files
+<p>The orchestrator uses YAML syntax to define the jobs and steps.  These YAML files
 are stored in your code repository.</p>
 <p>You can create an example workflow in your repository that automatically triggers a
-series of commands whenever code is pushed.  In this workflow, Squash Orchestrator
+series of commands whenever code is pushed.  In this workflow, the orchestrator
 checks out the pushed code, installs the software dependencies and runs <code>bats -v</code>.</p>
 <ol>
 <li>
 <p>In your repository, create a new file called <code>Squashfile</code> and add the following code.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">learn-squash-orchestrator</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">learn-opentf-orchestrator</span>
 <span class="nt">jobs</span><span class="p">:</span>
   <span class="nt">my-first-job</span><span class="p">:</span>
     <span class="nt">runs-on</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">linux</span><span class="p p-Indicator">,</span> <span class="nv">robotframework</span><span class="p p-Indicator">]</span>
@@ -1106,7 +1107,7 @@ checks out the pushed code, installs the software dependencies and runs <code>ba
 <p>Commit these changes and push them to your repository.</p>
 </li>
 </ol>
-<p>Your new Squash Orchestrator workflow file is now installed in your repository and will
+<p>Your new OpenTestFactory orchestrator workflow file is now installed in your repository and will
 run each time someone triggers it.</p>
 <h2 id="understanding-the-workflow-file">Understanding the workflow file<a class="headerlink" href="#understanding-the-workflow-file" title="Permanent link">&para;</a></h2>
 <p>To help you understand how YAML syntax is used to create a workflow file, this section
@@ -1124,12 +1125,12 @@ explains each line of the introduction&rsquo;s example:</p>
 <td>Groups together the metadata elements.</td>
 </tr>
 <tr>
-<td><code>name: learn-squash-orchestrator</code></td>
+<td><code>name: learn-opentf-orchestrator</code></td>
 <td>The name of the workflow.</td>
 </tr>
 <tr>
 <td><code>jobs:</code></td>
-<td>Groups together all the jobs that run in the <code>learn-squash-orchestrator</code> workflow file.</td>
+<td>Groups together all the jobs that run in the <code>learn-opentf-orchestrator</code> workflow file.</td>
 </tr>
 <tr>
 <td><code>my-first-job:</code></td>
@@ -1174,14 +1175,14 @@ explains each line of the introduction&rsquo;s example:</p>
 </tbody>
 </table>
 <h3 id="visualizing-the-workflow-file">Visualizing the workflow file<a class="headerlink" href="#visualizing-the-workflow-file" title="Permanent link">&para;</a></h3>
-<p>In this diagram, you can see the workflow file you just created and how the Squash
-Orchestrator components are organized in a hierarchy.  Each step execute a single provider
+<p>In this diagram, you can see the workflow file you just created and how the OpenTestFactory
+orchestrator components are organized in a hierarchy.  Each step execute a single provider
 or shell command.  Steps 1 and 2 use prebuilt community providers.  Steps 3 and 4 run shell
 commands directly on the execution environment.  To find more prebuilt providers for your
 workflows, see &ldquo;<a href="../finding-and-customizing-plugins/">Finding and customizing plugins.</a>&ldquo;</p>
 <p>DIAGRAM</p>
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<p>To continue learning about Squash Orchestrator, see &ldquo;<a href="../finding-and-customizing-plugins/">Finding and customizing plugins.</a>&ldquo;</p>
+<p>To continue learning about the OpenTestFactory orchestrator, see &ldquo;<a href="../finding-and-customizing-plugins/">Finding and customizing plugins.</a>&ldquo;</p>
                 
               
               

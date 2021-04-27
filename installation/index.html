@@ -1010,9 +1010,9 @@
                 
                 <h1 id="orchestrator-installation-documentation">Orchestrator Installation Documentation<a class="headerlink" href="#orchestrator-installation-documentation" title="Permanent link">&para;</a></h1>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<p>Squash Orchestrator, part of Squash Autom and Squash DevOps, is a set of
-services running together.  They may or may not run on the same machine, and
-they may or may not be started at the same time.</p>
+<p>The OpenTestFactory orchestrator is a set of services running together.
+They may or may not run on the same machine, and they may or may not be started
+at the same time.</p>
 <p>The only prerequisite is that the <em>EventBus</em>, the service they use to
 communicate together, is available when they launch.</p>
 <p>To ease the installation of the orchestrator, an &lsquo;all-in-one&rsquo;
@@ -1030,9 +1030,9 @@ If you want a specific version, you can use a specific tag such as
 <li>Trusted Keys</li>
 <li>Plugins</li>
 </ul>
-<p>Once this configuration is done, you can run the image and the Squash orchestrator will be
+<p>Once this configuration is done, you can run the image and the orchestrator will be
 ready to use.</p>
-<p>Here is a simple command that will start the Squash orchestrator so that it can use
+<p>Here is a simple command that will start the orchestrator so that it can use
 one existing <em>execution environment</em>, with self-generated trusted keys (which is <em>not</em>
 recommended in a production setup):</p>
 <div class="highlight"><pre><span></span><code>docker run -d <span class="se">\</span>
@@ -1097,7 +1097,7 @@ then use the corresponding public key as its only trusted key.  The temporary
 private key is not kept anywhere.</p>
 <p>The created JWT token is displayed in the logs of the orchestrator.  Look for
 <code>"Creating temporary JWT token"</code>:</p>
-<div class="highlight"><pre><span></span><code>docker logs squashorchestrator <span class="p">|</span> grep --after-context<span class="o">=</span><span class="m">10</span> <span class="s2">&quot;Creating temporary JWT token&quot;</span>
+<div class="highlight"><pre><span></span><code>docker logs orchestrator <span class="p">|</span> grep --after-context<span class="o">=</span><span class="m">10</span> <span class="s2">&quot;Creating temporary JWT token&quot;</span>
 </code></pre></div>
 <p>A different JWT token will be created each time the orchestrator is started.</p>
 <p>It is not recommended to use this created JWT token in a production environment.</p>
