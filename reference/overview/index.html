@@ -356,7 +356,7 @@
   
     <li class="md-nav__item">
       <a href="../../learn-squash-orchestrator/essential-features-of-squash-orchestrator/" class="md-nav__link">
-        Essential features of OpenTestFactory Orchestrator
+        Essential features
       </a>
     </li>
   
@@ -701,9 +701,45 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Overview
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-syntax" class="md-nav__link">
+    Workflow syntax
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    Environment variables
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -781,6 +817,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-syntax" class="md-nav__link">
+    Workflow syntax
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    Environment variables
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -793,6 +851,19 @@
                 
                 
                 <h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
+<p>Reference documentation for creating workflows.</p>
+<h2 id="workflow-syntax">Workflow syntax<a class="headerlink" href="#workflow-syntax" title="Permanent link">&para;</a></h2>
+<p>The workflow file is written in YAML. In the YAML workflow file, you can use expression syntax to evaluate contextual information, literals, operators, and functions. Contextual information includes workflow, reosurces, and environment variables. When you use run in a workflow step to run shell commands, you can use specific workflow command syntax to set environment variables, set output parameters for subsequent steps, and set error or debug messages.</p>
+<ul>
+<li><a href="../workflows/">Workflow syntax for OpenTestFactory Orchestrator</a></li>
+<li><a href="../context-and-expression-syntax/">Context and expression syntax for OpenTestFactory workflows</a></li>
+<li><a href="../workflow-commands/">Workflow commands for OpenTestFactory Orchestrator Plugins</a></li>
+</ul>
+<h2 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
+<p>The OpenTestFactory orchestrator sets default environment variables for each OpenTestFactory workflow run. You can also set custom environment variables in your workflow file.</p>
+<ul>
+<li><a href="../using-environment-variables/">Environment variables</a></li>
+</ul>
                 
               
               
